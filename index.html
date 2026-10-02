@@ -222,18 +222,11 @@ h1 .b em::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:
 .lead{font-size:clamp(1.05rem,1.4vw,1.22rem);max-width:33em;color:var(--tx-2);margin:26px 0 28px}
 .lead strong{color:var(--tx)}
 
-.ask{background:var(--card);border:1.5px solid var(--tx);border-radius:18px;padding:6px;display:flex;gap:6px;max-width:560px;box-shadow:6px 6px 0 var(--orange)}
-.ask label{display:flex;align-items:center;gap:10px;flex:1;padding:0 12px;min-width:0}
-.ask label b{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;background:var(--grad);color:#0b0b0d;padding:4px 8px;border-radius:6px;white-space:nowrap}
-.ask input{border:0;background:transparent;outline:0;width:100%;min-width:0;font-size:1rem;padding:12px 0}
-.ask input::placeholder{color:var(--tx-3)}
-.ask .btn{border-radius:13px;padding:12px 18px}
-.ask-note{font-size:.88rem;color:var(--tx-3);margin:14px 0 0 4px}
-.ask-hint{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
-.ask-hint .mono{color:var(--tx-3);margin-right:4px}
-.chip{border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:6px 12px;font-size:.86rem;cursor:pointer;transition:.2s}
-.chip:hover{background:var(--inv-bg);color:var(--inv-tx);border-color:var(--inv-bg)}
-@media (max-width:560px){.ask{flex-direction:column;box-shadow:4px 4px 0 var(--orange)}.ask label{padding:4px 10px}.ask .btn{width:100%}}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.trust{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--tx-2);font-size:.95rem}
+.trust li{display:flex;align-items:center;gap:8px}
+.trust li::before{content:"";width:18px;height:18px;border-radius:50%;flex-shrink:0;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
+@media (max-width:560px){.hero-ctas .btn{flex:1}}
 
 /* assistente */
 .wiz{position:relative;background:var(--night);color:var(--on-night);border:1px solid rgba(255,255,255,.07);border-radius:26px;padding:clamp(20px,2.6vw,32px);box-shadow:0 40px 70px -35px rgba(0,0,0,.7);overflow:hidden;isolation:isolate;min-height:540px;display:flex;flex-direction:column}
@@ -309,7 +302,7 @@ h2{margin:0;font-weight:900;font-size:clamp(2.3rem,5.4vw,4.6rem);line-height:.92
 h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;color:var(--blue-t)}
 .sec-head p{margin:18px 0 0;max-width:40em;color:var(--tx-2);font-size:1.08rem}
 
-/* ───────── como comprar (painel preto) ───────── */
+/* ───────── painel preto (guia rápido) ───────── */
 .dark{background:var(--night);color:var(--on-night);overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
 .dark::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 85% 20%,rgba(10,60,255,.38),transparent 60%),radial-gradient(600px 380px at 5% 100%,rgba(255,110,10,.2),transparent 60%);pointer-events:none}
 .dark .wrap{position:relative}
@@ -317,41 +310,116 @@ h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;co
 .dark .kicker b{background:var(--grad);color:#0b0b0d}
 .dark h2 i{color:var(--orange)}
 .dark .sec-head p{color:var(--on-night-2)}
-.photo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
-.how{list-style:none;margin:0 0 34px;padding:0;display:grid;gap:12px}
-.how li{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px}
-.how .n{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:var(--grad);color:#0b0b0d}
-.how li:nth-child(2) .n{background:var(--blue);color:#fff}
-.how li:nth-child(3) .n{background:#fff;color:#0b0b0d}
-.how .n svg{width:28px;height:28px}
-.how b{display:block;font-size:1.12rem}
-.how span{color:var(--on-night-2);font-size:.95rem}
-.photo .ctas{display:flex;flex-wrap:wrap;gap:10px}
+/* abas */
+.tabs{display:inline-flex;flex-wrap:wrap;gap:6px;padding:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;margin-bottom:28px}
+.tabs button{display:flex;align-items:center;gap:10px;border:0;background:transparent;color:var(--on-night-2);font-weight:700;font-size:1rem;padding:12px 18px;border-radius:13px;cursor:pointer;transition:.2s}
+.tabs button svg{width:20px;height:20px}
+.tabs button:hover{color:#fff;background:rgba(255,255,255,.06)}
+.tabs button[aria-selected="true"]{background:var(--grad);color:#0b0b0d}
+.pane{animation:swap .45s cubic-bezier(.2,.8,.2,1)}
+.pane[hidden]{display:none}
+@media (max-width:560px){.tabs{display:grid;grid-template-columns:1fr 1fr;width:100%}.tabs button{justify-content:center;font-size:.9rem;padding:12px 8px;text-align:center}.tabs button svg{display:none}}
 
-.phone{position:relative;width:min(360px,100%);margin:0 auto;aspect-ratio:9/18.5;background:#1b1c20;border-radius:46px;padding:12px;box-shadow:0 0 0 2px #2b2c31,0 50px 80px -30px rgba(0,0,0,.9);transform:rotate(3deg)}
-.phone::before{content:"";position:absolute;top:22px;left:50%;width:90px;height:24px;margin-left:-45px;background:#000;border-radius:20px;z-index:3}
-.screen{position:relative;height:100%;border-radius:36px;overflow:hidden;background:#efe7dc;display:flex;flex-direction:column}
-.screen::after{content:"";position:absolute;inset:60px 0 0;background-image:radial-gradient(rgba(0,0,0,.05) 1px,transparent 1.5px);background-size:14px 14px;pointer-events:none}
-.chat-h{display:flex;align-items:center;gap:10px;background:#0b0b0d;color:#fff;padding:52px 14px 12px}
-.chat-h img{width:36px;height:36px;border-radius:50%;background:#000;padding:3px}
-.chat-h b{display:block;font-size:.92rem;line-height:1.1}
-.chat-h small{font-size:.72rem;color:#8fe3a6}
-.chat{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:14px 12px 16px;color:#111}
-.msg{max-width:82%;padding:8px 11px 6px;border-radius:12px;font-size:.84rem;line-height:1.35;box-shadow:0 1px 1px rgba(0,0,0,.12);opacity:0;transform:translateY(10px) scale(.96);transition:opacity .35s,transform .45s cubic-bezier(.2,.9,.3,1.3)}
-.msg.show{opacity:1;transform:none}
-.msg small{display:block;text-align:right;font-size:.62rem;color:#6d7a6a;margin-top:2px}
-.msg.me{align-self:flex-end;background:#d9fdd3;border-top-right-radius:3px}
-.msg.them{align-self:flex-start;background:#fff;border-top-left-radius:3px}
-.msg.pic{padding:4px}
-.msg.pic .ph{width:170px;height:120px;border-radius:9px;background:linear-gradient(135deg,#c4baa9,#8f8676);display:grid;place-items:center;overflow:hidden}
-.msg.pic .ph svg{width:124px}
-.typing{align-self:flex-start;background:#fff;border-radius:12px;padding:10px 12px;display:none;gap:4px}
-.typing.show{display:flex}
-.typing i{width:6px;height:6px;border-radius:50%;background:#9aa;animation:dots 1s infinite}
-.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-@keyframes dots{50%{transform:translateY(-3px);opacity:.5}}
-.phone-note{text-align:center;color:var(--on-night-2);font-size:.72rem;margin-top:22px}
-@media (max-width:980px){.photo{grid-template-columns:1fr}.phone{transform:none;max-width:330px}}
+/* qual é o meu cabo? */
+.cn-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;align-items:center}
+.cn-filter::before{content:"Para usar em:";font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--on-night-2);margin-right:4px}
+.cn-filter button{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);color:var(--on-night);border-radius:999px;padding:8px 15px;cursor:pointer;font-size:.92rem;transition:.2s}
+.cn-filter button:hover{border-color:var(--orange)}
+.cn-filter button[aria-pressed="true"]{background:#fff;color:#0b0b0d;border-color:#fff;font-weight:700}
+.cn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.cn{display:flex;flex-direction:column;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:14px;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),border-color .3s,background .3s;animation:swap .4s cubic-bezier(.2,.8,.2,1) both}
+.cn[hidden]{display:none}
+.cn:hover{transform:translateY(-4px);border-color:rgba(255,138,15,.6);background:rgba(255,255,255,.06)}
+.cn .art{height:118px;border-radius:14px;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(10,60,255,.32),transparent 70%),#111218;border:1px solid rgba(255,255,255,.06);margin-bottom:14px;overflow:hidden}
+.cn .art svg{width:72%;max-width:170px;height:auto;transition:transform .4s cubic-bezier(.2,.9,.3,1.3)}
+.cn:hover .art svg{transform:scale(1.08)}
+.cn .art .s{fill:none;stroke:#f1efe9;stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
+.cn .art .f{fill:#f1efe9}
+.cn .art .o{fill:none;stroke:#ff8a0f;stroke-width:2.4;stroke-linecap:round}
+.cn .art .of{fill:#ff8a0f}
+.cn h4{margin:0;font-size:1.2rem;font-weight:800;font-variation-settings:"wdth" 90;line-height:1.1}
+.cn .aka{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--orange);margin:5px 0 8px}
+.cn p{margin:0 0 14px;color:var(--on-night-2);font-size:.92rem;line-height:1.45}
+.cn button{margin-top:auto;align-self:flex-start;background:transparent;border:1px solid rgba(255,255,255,.22);color:var(--on-night);border-radius:999px;padding:7px 14px;font-size:.84rem;font-weight:600;cursor:pointer;transition:.2s}
+.cn button:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.cn-note{margin:18px 0 0;color:var(--on-night-2);font-size:.82rem}
+@media (max-width:560px){
+  .cn-filter{flex-wrap:nowrap;overflow-x:auto;margin:0 calc(var(--gutter) * -1) 18px;padding:0 var(--gutter) 4px;scrollbar-width:none}
+  .cn-filter::-webkit-scrollbar{display:none}
+  .cn-filter::before{display:none}
+  .cn-filter button{flex-shrink:0}
+  .cn-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .cn{padding:10px;border-radius:16px}
+  .cn .art{height:78px;margin-bottom:10px;border-radius:11px}
+  .cn h4{font-size:1.02rem}
+  .cn .aka{font-size:.6rem}
+  .cn p{font-size:.8rem;margin-bottom:10px}
+  .cn button{font-size:.74rem;padding:6px 10px}
+}
+
+/* o carregador serve? */
+.carr{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,3vw,40px);align-items:start}
+.lbl-demo{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:clamp(18px,2.4vw,28px)}
+.brick{position:relative;margin:4px auto 26px;max-width:440px;background:linear-gradient(160deg,#2b2c32,#17181c);border-radius:22px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 24px 40px -20px rgba(0,0,0,.8)}
+.brick::before,.brick::after{content:"";position:absolute;top:50%;width:46px;height:12px;margin-top:-6px;background:#17181c;border-radius:6px}
+.brick::before{left:-38px}.brick::after{right:-38px}
+.sticker{background:#e9e6de;color:#2a2a2e;border-radius:8px;padding:14px 16px;font-family:var(--mono);font-size:.78rem;line-height:1.5;display:flex;flex-direction:column;gap:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.sticker b{font-size:.92rem;letter-spacing:.06em}
+.sticker .tiny{font-size:.62rem;color:#7a776f;margin-top:4px}
+.sticker .hl{position:relative;display:block;border-radius:5px;padding:3px 6px;margin:0 -6px}
+.sticker .hl-in{background:rgba(120,120,130,.18)}
+.sticker .hl-out{background:rgba(10,60,255,.08);font-weight:600;font-size:.86rem}
+.sticker em{font-style:normal;position:relative;padding:1px 4px;border-radius:4px}
+.sticker em.v{background:#ff8a0f;color:#0b0b0d}
+.sticker em.a{background:#0a3cff;color:#fff}
+.sticker i{position:absolute;top:-10px;right:-10px;width:18px;height:18px;border-radius:50%;font-style:normal;font-size:.62rem;font-weight:700;display:grid;place-items:center;background:#0b0b0d;color:#fff;border:2px solid #e9e6de;animation:ping 2.4s infinite}
+.sticker .hl-in i{top:50%;right:-14px;margin-top:-9px;background:#6b6c72}
+@keyframes ping{0%,100%{box-shadow:0 0 0 0 rgba(255,138,15,.6)}50%{box-shadow:0 0 0 6px rgba(255,138,15,0)}}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.legend li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start}
+.legend i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.85rem}
+.legend .c1{background:#ff8a0f;color:#0b0b0d}.legend .c2{background:#0a3cff;color:#fff}.legend .c3{background:#6b6c72;color:#fff}.legend .c4{background:#fff;color:#0b0b0d}
+.legend b{display:block;font-size:1rem}
+.legend span{color:var(--on-night-2);font-size:.9rem}
+.where{margin:18px 0 0;padding-top:16px;border-top:1px dashed rgba(255,255,255,.15);color:var(--on-night-2);font-size:.9rem}
+.where b{color:#fff}
+
+.checker{background:var(--night-2);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:14px}
+.checker h3{margin:0;font-size:1.6rem;font-weight:800;font-variation-settings:"wdth" 85;line-height:1}
+.checker>p{margin:0;color:var(--on-night-2)}
+.checker>p b{color:#fff}
+.ck-row{display:grid;grid-template-columns:1fr 104px 104px;gap:8px;align-items:center}
+.ck-l{font-weight:600}
+.unit{position:relative;display:block}
+.unit input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 30px 12px 12px;color:#fff;font-family:var(--mono);font-size:1.05rem;outline:0}
+.unit input:focus{border-color:var(--orange)}
+.unit span{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-weight:600;color:var(--on-night-2);pointer-events:none}
+.ck-row:nth-of-type(1) .unit:nth-of-type(1) span,.ck-row:nth-of-type(2) .unit:nth-of-type(1) span{color:#ff8a0f}
+.ck-row .unit:nth-of-type(2) span{color:#8aa6ff}
+.ck-plug{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.seg2{display:inline-grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,.2);border-radius:999px;overflow:hidden}
+.seg2 label{position:relative;cursor:pointer;padding:8px 18px;font-weight:600;font-size:.92rem}
+.seg2 input{position:absolute;opacity:0}
+.seg2 label:has(input:checked){background:#fff;color:#0b0b0d}
+.seg2 label:has(input:focus-visible){outline:2px solid var(--orange);outline-offset:-3px}
+.verdict{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:center;border-radius:16px;padding:16px;border:1.5px solid;transition:background .3s,border-color .3s}
+.verdict .vi{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;font-weight:900}
+.verdict b{display:block;font-size:1.2rem;line-height:1.15}
+.verdict span{color:var(--on-night-2);font-size:.92rem}
+.verdict.ok{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.55)}
+.verdict.ok .vi{background:#22c55e;color:#06210f}
+.verdict.warn{background:rgba(255,138,15,.1);border-color:rgba(255,138,15,.6)}
+.verdict.warn .vi{background:#ff8a0f;color:#0b0b0d}
+.verdict.bad{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.6)}
+.verdict.bad .vi{background:#ef4444;color:#fff}
+.verdict.wait{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.15)}
+.verdict.wait .vi{background:rgba(255,255,255,.12);color:#fff}
+.verdict.pop{animation:pop .4s cubic-bezier(.2,.9,.3,1.4)}
+@keyframes pop{40%{transform:scale(1.02)}}
+.checker .btn{width:100%}
+.ck-foot{color:var(--on-night-2);font-size:.78rem;line-height:1.5}
+@media (max-width:980px){.carr{grid-template-columns:1fr}}
+@media (max-width:480px){.ck-row{grid-template-columns:1fr 1fr}.ck-l{grid-column:span 2}.brick::before,.brick::after{display:none}}
 
 /* ───────── gavetas ───────── */
 .cabinet{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(20px,3vw,40px);align-items:start}
@@ -586,8 +654,8 @@ footer .wrap{position:relative}
       <img src="img/logo-premier.png" alt="Eletrônica Premier" width="1200" height="431">
     </a>
     <nav class="nav" aria-label="Seções">
-      <a href="#como-comprar">Como comprar</a>
       <a href="#produtos">Produtos</a>
+      <a href="#guia">Guia rápido</a>
       <a href="#conserto">Conserto</a>
       <a href="#duvidas">Dúvidas</a>
       <a href="#visite">Como chegar</a>
@@ -626,20 +694,13 @@ footer .wrap{position:relative}
       </h1>
       <p class="lead ld" style="--d:.2s">Precisa de um carregador, um cabo, uma pecinha que ninguém tem ou consertar um aparelho? Fale com a gente — <strong>mesmo que você não saiba o nome do que procura.</strong></p>
 
-      <form class="ask ld" style="--d:.28s" id="askForm" autocomplete="off">
-        <label for="askInput"><b>TEM AÍ?</b><input id="askInput" type="text" placeholder="Escreva o que você procura" aria-label="O que você procura?"></label>
-        <button class="btn btn-blue" type="submit">Perguntar
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-      </form>
-      <p class="ask-note ld" style="--d:.32s">A pergunta vai direto para o WhatsApp da loja.</p>
-      <div class="ask-hint ld" style="--d:.36s">
-        <span class="mono">Ex.:</span>
-        <button class="chip" type="button">Carregador de notebook</button>
-        <button class="chip" type="button">Controle remoto</button>
-        <button class="chip" type="button">Cabo HDMI</button>
-        <button class="chip" type="button">Fonte para câmera</button>
+      <div class="hero-ctas ld" style="--d:.28s">
+        <a class="btn btn-ink" href="#produtos">Ver o que tem na loja</a>
+        <a class="btn btn-ghost" href="#guia">Qual é o meu cabo?</a>
       </div>
+      <ul class="trust ld" style="--d:.36s">
+        <li>Atendimento do próprio dono</li><li>Retirada na porta</li><li>Entrega</li>
+      </ul>
     </div>
 
     <!-- Assistente: 2 perguntas simples e a mensagem sai pronta -->
@@ -665,55 +726,11 @@ footer .wrap{position:relative}
 
 <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
 
-<!-- ═════════ COMO COMPRAR ═════════ -->
-<section class="sec dark" id="como-comprar">
-  <div class="wrap photo">
-    <div>
-      <div class="sec-head rv" style="margin-bottom:34px">
-        <span class="kicker mono"><b>01</b> Como comprar</span>
-        <h2>Não sabe o nome da peça? <i>Manda a foto.</i></h2>
-        <p>Você não precisa entender de eletrônica. É só mostrar o que precisa — a gente descobre o que é, confere se tem e separa pra você.</p>
-      </div>
-      <ol class="how rv">
-        <li><span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><div><b>Tire uma foto</b><span>Da peça, do aparelho ou da etiqueta do carregador antigo.</span></div></li>
-        <li><span class="n"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg></span><div><b>Mande no WhatsApp</b><span>Fale do seu jeito. Sem termos técnicos.</span></div></li>
-        <li><span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Retire ou receba</b><span>A gente separa. Você busca na loja ou recebe por entrega.</span></div></li>
-      </ol>
-      <div class="ctas rv">
-        <a class="btn btn-orange" data-wa="Olá, Eletrônica Premier! Vou mandar a foto de uma peça que preciso:" href="#" target="_blank" rel="noopener">Mandar foto agora</a>
-        <a class="btn btn-ghost-light" href="#produtos">Ver produtos</a>
-      </div>
-    </div>
-
-    <div class="rv">
-      <div class="phone" id="phone">
-        <div class="screen">
-          <div class="chat-h">
-            <img src="img/logo-ep.png" alt="" width="512" height="512">
-            <div><b>Eletrônica Premier</b><small>online</small></div>
-          </div>
-          <div class="chat" id="chat">
-            <div class="msg me">Oi! O carregador do meu notebook parou. Não sei qual é 😅<small>14:02</small></div>
-            <div class="msg me pic"><div class="ph">
-              <svg viewBox="0 0 120 80" aria-hidden="true"><rect x="18" y="18" width="62" height="40" rx="6" fill="#2a2a2e"/><rect x="28" y="28" width="42" height="20" rx="2" fill="#d8d4ca"/><path d="M31 34h26M31 39h32M31 44h18" stroke="#6b675e" stroke-width="2"/><path d="M80 38 C95 38 92 60 108 60" stroke="#2a2a2e" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M18 38 C8 38 10 22 2 22" stroke="#2a2a2e" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
-            </div><small>14:02</small></div>
-            <div class="typing" id="typing"><i></i><i></i><i></i></div>
-            <div class="msg them">Oi! Pela foto da etiqueta, a gente tem o modelo certo ✅<small>14:04</small></div>
-            <div class="msg them">Quer que eu separe pra você retirar hoje?<small>14:04</small></div>
-            <div class="msg me">Quero! Passo aí às 15h 👍<small>14:05</small></div>
-          </div>
-        </div>
-      </div>
-      <p class="phone-note">Conversa ilustrativa</p>
-    </div>
-  </div>
-</section>
-
 <!-- ═════════ PRODUTOS (GAVETAS) ═════════ -->
 <section class="sec" id="produtos">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker mono"><b>02</b> Produtos</span>
+      <span class="kicker mono"><b>01</b> Produtos</span>
       <h2>Tudo numa loja <i>só.</i></h2>
       <p>Como no balcão da loja, cada gaveta guarda um tipo de produto. Toque em uma gaveta para ver o que tem dentro e para que serve.</p>
     </div>
@@ -723,6 +740,84 @@ footer .wrap{position:relative}
         <div class="drawers force-light" id="drawers" role="group" aria-label="Tipos de produto"></div>
       </div>
       <aside class="drawer-panel rv" id="panel" aria-live="polite"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ GUIA RÁPIDO ═════════ -->
+<section class="sec dark" id="guia">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker mono"><b>02</b> Guia rápido</span>
+      <h2>Aprenda em 1 minuto. <i>Compre sem errar.</i></h2>
+      <p>Dois guias para quem não é técnico: descubra o nome do cabo que você precisa e confira se um carregador serve no seu aparelho.</p>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="Guias">
+      <button type="button" role="tab" id="tab-cabos" aria-selected="true" aria-controls="pane-cabos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20v-5a4 4 0 0 1 4-4h8a4 4 0 0 0 4-4V4"/><rect x="2" y="17" width="4" height="5" rx="1"/><rect x="18" y="1" width="4" height="5" rx="1"/></svg>
+        Qual é o meu cabo?
+      </button>
+      <button type="button" role="tab" id="tab-carr" aria-selected="false" aria-controls="pane-carr">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0zM12 17v5"/></svg>
+        O carregador serve?
+      </button>
+    </div>
+
+    <!-- Aba 1: identificador de cabos -->
+    <div class="pane" id="pane-cabos" role="tabpanel" aria-labelledby="tab-cabos">
+      <div class="cn-filter" id="cnFilter" role="group" aria-label="Filtrar por aparelho"></div>
+      <div class="cn-grid" id="cnGrid"></div>
+      <p class="cn-note">Os desenhos mostram a ponta do cabo (ou a entrada do aparelho) vista de frente ou de lado.</p>
+    </div>
+
+    <!-- Aba 2: o carregador serve? -->
+    <div class="pane" id="pane-carr" role="tabpanel" aria-labelledby="tab-carr" hidden>
+      <div class="carr">
+        <div class="lbl-demo">
+          <div class="brick" aria-hidden="true">
+            <div class="sticker">
+              <b>AC ADAPTER</b>
+              <span>MODEL: NB-90W</span>
+              <span class="hl hl-in"><i>3</i>INPUT: 100-240V ~ 1.5A 50/60Hz</span>
+              <span class="hl hl-out">OUTPUT: <em class="v"><i>1</i>19V</em> ⎓ <em class="a"><i>2</i>4.74A</em></span>
+              <span class="tiny">CE · FCC · BIVOLT</span>
+            </div>
+          </div>
+          <ol class="legend">
+            <li><i class="c1">1</i><div><b>V (volts) tem que ser IGUAL.</b><span>Se o antigo é 19V, o novo também precisa ser 19V.</span></div></li>
+            <li><i class="c2">2</i><div><b>A (amperes) pode ser igual ou MAIOR.</b><span>Nunca menor. O aparelho só puxa o que precisa.</span></div></li>
+            <li><i class="c3">3</i><div><b>INPUT 100-240V quer dizer bivolt.</b><span>Funciona em tomada 110 e 220.</span></div></li>
+            <li><i class="c4">+</i><div><b>O plugue precisa encaixar igual.</b><span>Mesmo formato e tamanho da ponta.</span></div></li>
+          </ol>
+          <p class="where">A etiqueta fica embaixo ou atrás do carregador. Procure a palavra <b>OUTPUT</b> (ou <b>SAÍDA</b>).</p>
+        </div>
+
+        <div class="checker" aria-live="polite">
+          <h3>Faça o teste</h3>
+          <p>Copie os números da linha <b>OUTPUT</b> dos dois carregadores.</p>
+          <div class="ck-row">
+            <span class="ck-l">Carregador antigo</span>
+            <label class="unit"><input id="ovV" type="text" inputmode="decimal" value="19" aria-label="Volts do carregador antigo"><span>V</span></label>
+            <label class="unit"><input id="ovA" type="text" inputmode="decimal" value="4,74" aria-label="Amperes do carregador antigo"><span>A</span></label>
+          </div>
+          <div class="ck-row">
+            <span class="ck-l">Carregador novo</span>
+            <label class="unit"><input id="nvV" type="text" inputmode="decimal" value="19" aria-label="Volts do carregador novo"><span>V</span></label>
+            <label class="unit"><input id="nvA" type="text" inputmode="decimal" value="6,32" aria-label="Amperes do carregador novo"><span>A</span></label>
+          </div>
+          <div class="ck-plug">
+            <span>O plugue encaixa igual?</span>
+            <div class="seg2" role="radiogroup" aria-label="O plugue encaixa igual?">
+              <label><input type="radio" name="plug" value="sim" checked>Sim</label>
+              <label><input type="radio" name="plug" value="nao">Não</label>
+            </div>
+          </div>
+          <div class="verdict" id="verdict"></div>
+          <button class="btn btn-orange" type="button" id="ckAdd">+ Anotar este carregador na lista</button>
+          <small class="ck-foot">Vale para carregadores e fontes comuns: notebook, câmera, roteador, fita de LED e som. Na dúvida, traga o antigo na loja que a gente confere.</small>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -794,8 +889,8 @@ footer .wrap{position:relative}
       <span class="t">Som e caixas de som</span><span class="t">Fontes e carregadores</span><span class="t">Notebook e computador</span><span class="t">Eletrônicos de casa</span><span class="t">Rádios e comunicação</span><span class="t">Placas eletrônicas</span>
     </div>
     <div class="cta-row rv">
-      <a class="btn btn-ink" data-wa="Olá, Eletrônica Premier! Tenho um aparelho com defeito e queria saber se vocês consertam:" href="#" target="_blank" rel="noopener">Perguntar sobre conserto</a>
-      <small>Diga qual é o aparelho e o que aconteceu.</small>
+      <a class="btn btn-ink" href="#visite">Ver endereço da loja</a>
+      <small>Traga o aparelho de segunda a sexta, das 8h às 18h.</small>
     </div>
   </div>
 </section>
@@ -842,14 +937,14 @@ footer .wrap{position:relative}
     <div class="side rv">
       <span class="kicker mono"><b>06</b> Dúvidas</span>
       <h2>Perguntas <i>de quem chega.</i></h2>
-      <p style="color:var(--tx-2);margin:18px 0 0">Não achou sua resposta? Pergunte pra gente — é rapidinho.</p>
-      <a class="btn btn-blue" data-wa="Olá, Eletrônica Premier! Tenho uma dúvida:" href="#" target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a>
+      <p style="color:var(--tx-2);margin:18px 0 0">Não achou sua resposta? Ligue para a loja ou passe aqui — é rapidinho.</p>
+      <a class="btn btn-ghost" href="tel:+556239450068"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Ligar: (62) 3945-0068</a>
     </div>
     <div class="qa rv">
-      <details open><summary>Não sei o nome da peça. E agora?<i></i></summary><div class="ans"><p>Sem problema — acontece com quase todo mundo. Tire uma foto da peça (ou do aparelho) e mande no nosso WhatsApp. Se preferir, traga a peça velha na loja: a gente identifica na hora.</p></div></details>
+      <details open><summary>Não sei o nome da peça. E agora?<i></i></summary><div class="ans"><p>Sem problema — acontece com quase todo mundo. Se for um cabo, veja o <a href="#guia">Guia rápido</a>: lá estão os mais comuns, com nome e para que servem. Para outras peças, traga a peça velha na loja ou mande uma foto pelo WhatsApp que a gente identifica.</p></div></details>
       <details><summary>Vocês consertam aparelhos?<i></i></summary><div class="ans"><p>Sim. Traga o aparelho na loja: o técnico avalia, descobre o defeito e passa o preço. O conserto só é feito depois que você aprovar.</p></div></details>
-      <details><summary>Como sei se vocês têm o que eu preciso?<i></i></summary><div class="ans"><p>Pergunte pelo WhatsApp ou use o campo “Tem aí?” no topo do site. A gente confere e te responde.</p></div></details>
-      <details><summary>Meu carregador quebrou. Qualquer um serve?<i></i></summary><div class="ans"><p>Nem sempre — cada aparelho precisa do carregador certo, senão pode estragar. Mande uma foto da etiqueta do carregador antigo (aquela com letrinhas pequenas) e a gente indica o modelo que serve.</p></div></details>
+      <details><summary>Como sei se vocês têm o que eu preciso?<i></i></summary><div class="ans"><p>Ligue para a loja ou chame no WhatsApp. Se precisar de várias coisas, monte a sua lista aqui no site e envie de uma vez.</p></div></details>
+      <details><summary>Meu carregador quebrou. Qualquer um serve?<i></i></summary><div class="ans"><p>Nem sempre — cada aparelho precisa do carregador certo, senão pode estragar. Use o teste <a href="#guia" data-open-tab="tab-carr">“O carregador serve?”</a> aqui no site: é só copiar os números da etiqueta. Na dúvida, traga o antigo na loja.</p></div></details>
       <details><summary>Vocês entregam?<i></i></summary><div class="ans"><p>Sim. Você pode comprar na loja, retirar na porta ou receber por entrega. Chame no WhatsApp para combinar.</p></div></details>
       <details><summary>Sou técnico, instalador ou empresa. Tem atendimento pra mim?<i></i></summary><div class="ans"><p>Tem. Atendemos quem compra para trabalhar e em maior quantidade. Monte sua lista aqui no site e envie pelo WhatsApp que a gente faz o orçamento.</p></div></details>
       <details><summary>Qual o horário da loja?<i></i></summary><div class="ans"><p>De segunda a sexta, das 8h às 18h, na Rua 68, nº 283 — Setor Central, Goiânia.</p></div></details>
@@ -938,7 +1033,7 @@ footer .wrap{position:relative}
       <div><h5>Loja</h5><p>Rua 68, 283 · Qd 125 Lt 31<br>Setor Central · Goiânia–GO<br>74055-100</p></div>
       <div><h5>Horário</h5><p>Segunda a sexta<br>08h às 18h</p></div>
       <div><h5>Contato</h5><a href="tel:+556239450068">(62) 3945-0068</a><br><a data-wa="Olá, Eletrônica Premier! Vim pelo site." href="#" target="_blank" rel="noopener">WhatsApp</a></div>
-      <div><h5>Navegar</h5><a href="#como-comprar">Como comprar</a><br><a href="#produtos">Produtos</a><br><a href="#conserto">Conserto</a><br><a href="#duvidas">Dúvidas</a></div>
+      <div><h5>Navegar</h5><a href="#produtos">Produtos</a><br><a href="#guia">Guia rápido</a><br><a href="#conserto">Conserto</a><br><a href="#duvidas">Dúvidas</a></div>
     </div>
     <div class="legal"><span>© <span id="yr"></span> ELETRÔNICA PREMIER LTDA · CNPJ 59.790.633/0001-93</span><span>PEÇAS · CARREGADORES · CABOS · SEGURANÇA · CONSERTO</span></div>
   </div>
@@ -1150,15 +1245,6 @@ $('#sendList').addEventListener('click', () => {
 });
 renderList();
 
-/* ════════════ TEM AÍ? ════════════ */
-$('#askForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const v = $('#askInput').value.trim();
-  if (!v){ $('#askInput').focus(); return; }
-  openWa(`Olá, Eletrônica Premier! Vocês têm ${v}?`);
-});
-$$('.ask-hint .chip').forEach(c => c.addEventListener('click', () => { const i = $('#askInput'); i.value = c.textContent; i.focus(); }));
-
 /* ════════════ FAIXA ════════════ */
 const PN = ['Carregador de notebook','Controle remoto','Cabo HDMI','Fonte para câmera','Fita de LED','Antena digital','Pilhas e baterias','Ferro de solda','Caixa de som','Cabo de som','Carregador de celular','Extensão e adaptador','Fusível','Cooler','Câmera de segurança','Conserto de aparelhos'];
 $('#ticker').innerHTML = [...PN, ...PN].map(p => `<span>${p}</span>`).join('');
@@ -1208,25 +1294,119 @@ function openDrawer(i){
     <p>${d.d}</p>
     <p class="for"><b>Serve para:</b> ${d.f}.</p>
     <ul>${d.items.map(it => `<li><span>${it}</span>${d.repair ? '' : `<button type="button" data-add="${esc(it)}">+ Adicionar</button>`}</li>`).join('')}</ul>
-    <a class="btn ${d.repair ? 'btn-ink' : 'btn-blue'}" target="_blank" rel="noopener" href="${waLink(d.repair ? 'Olá, Eletrônica Premier! Tenho um aparelho com defeito e queria saber se vocês consertam:' : `Olá, Eletrônica Premier! Queria saber o que vocês têm de ${d.t.toLowerCase()}.`)}">${WA_ICON} ${d.repair ? 'Perguntar sobre conserto' : 'Perguntar no WhatsApp'}</a>
+    <a class="btn btn-ink" href="${d.repair ? '#conserto' : '#lista'}">${d.repair ? 'Como funciona o conserto' : 'Ver minha lista'}</a>
   </div>`;
 }
 drawersEl.addEventListener('click', e => { const b = e.target.closest('.drawer'); if (b) openDrawer(+b.dataset.i); });
 panel.addEventListener('click', e => { const b = e.target.closest('[data-add]'); if (b) addItem(b.dataset.add); });
 openDrawer(0);
 
-/* ════════════ CONVERSA ANIMADA ════════════ */
-function playChat(){
-  const msgs = $$('#chat .msg'), typing = $('#typing');
-  msgs.forEach(m => m.classList.remove('show')); typing.classList.remove('show');
-  [[msgs[0],400],[msgs[1],1200],['type',2000],[msgs[2],3600],[msgs[3],4500],[msgs[4],5800]].forEach(([m,t]) => setTimeout(() => {
-    if (m === 'type') typing.classList.add('show');
-    else { if (m === msgs[2]) typing.classList.remove('show'); m.classList.add('show'); }
-  }, t));
+/* ════════════ GUIA RÁPIDO ════════════ */
+/* abas */
+function abrirAba(id){
+  $$('#guia [role=tab]').forEach(t => {
+    const on = t.id === id;
+    t.setAttribute('aria-selected', String(on));
+    $('#' + t.getAttribute('aria-controls')).hidden = !on;
+  });
 }
-let chatPlayed = false;
-const startChat = () => { if (chatPlayed) return; chatPlayed = true; playChat(); setInterval(playChat, 12000); };
-new IntersectionObserver(en => en.forEach(x => { if (x.isIntersecting) startChat(); }), {threshold:.4}).observe($('#phone'));
+$$('#guia [role=tab]').forEach(t => t.addEventListener('click', () => abrirAba(t.id)));
+// links "O carregador serve?" em outras partes do site abrem a aba certa
+$$('[data-open-tab]').forEach(a => a.addEventListener('click', () => abrirAba(a.dataset.openTab)));
+
+/* Qual é o meu cabo? — desenhos em viewBox 0 0 120 80 */
+const CABOS = [
+  {n:'HDMI', aka:'Cabo da TV', tags:['tv','pc'], add:'Cabo HDMI',
+   use:'Liga TV box, videogame, notebook e decodificador na TV. Leva imagem e som juntos.',
+   svg:'<path class="s" d="M16 22h88v20L92 56H28L16 42z"/><rect class="f" x="28" y="30" width="64" height="10" rx="1.5"/>'},
+  {n:'USB-C', aka:'Carregador de celular novo', tags:['celular','pc'], add:'Cabo USB-C',
+   use:'Celulares mais novos, notebooks, fones e caixinhas de som. Encaixa dos dois lados.',
+   svg:'<rect class="s" x="24" y="26" width="72" height="28" rx="14"/><rect class="f" x="38" y="37" width="44" height="6" rx="3"/>'},
+  {n:'Micro USB', aka:'Carregador "V8"', tags:['celular','som'], add:'Cabo Micro USB',
+   use:'Celulares mais antigos, caixinhas de som, controles e power banks. Só encaixa de um lado.',
+   svg:'<path class="s" d="M28 30h64v9l-8 11H36l-8-11z"/><rect class="f" x="38" y="35" width="44" height="4" rx="1"/>'},
+  {n:'USB comum', aka:'USB-A', tags:['celular','pc'], add:'Cabo USB',
+   use:'A ponta “larga” que vai no carregador de tomada, no computador, na TV e no carro.',
+   svg:'<rect class="s" x="20" y="22" width="80" height="36" rx="3"/><rect class="f" x="28" y="29" width="64" height="11" rx="1"/><rect class="of" x="36" y="46" width="12" height="5" rx="1"/><rect class="of" x="72" y="46" width="12" height="5" rx="1"/>'},
+  {n:'Lightning', aka:'Cabo de iPhone', tags:['celular'], add:'Cabo Lightning (iPhone)',
+   use:'iPhones até o 14, iPads antigos e AirPods. Ponta fininha e chata.',
+   svg:'<rect class="f" x="66" y="25" width="40" height="30" rx="8"/><rect class="s" x="16" y="33" width="52" height="14" rx="7"/><path class="o" d="M28 40h3M37 40h3M46 40h3M55 40h3"/>'},
+  {n:'P2', aka:'Cabo de fone / auxiliar', tags:['som','celular'], add:'Cabo P2 (auxiliar)',
+   use:'Fone de ouvido, caixa de som, som do carro e microfone. Ponta redondinha de metal.',
+   svg:'<rect class="f" x="72" y="27" width="36" height="26" rx="6"/><rect class="s" x="18" y="35" width="54" height="10" rx="5"/><path class="o" d="M36 35v10M50 35v10"/>'},
+  {n:'RCA', aka:'Cabo "vermelho, branco e amarelo"', tags:['som','tv'], add:'Cabo RCA',
+   use:'Som e vídeo de aparelhos mais antigos: DVD, aparelho de som, mesa de som e TVs antigas.',
+   svg:'<circle cx="32" cy="40" r="14" fill="#e53935"/><circle cx="32" cy="40" r="4.5" fill="#0b0b0d"/><circle cx="60" cy="40" r="14" fill="#f1efe9"/><circle cx="60" cy="40" r="4.5" fill="#0b0b0d"/><circle cx="88" cy="40" r="14" fill="#fbc02d"/><circle cx="88" cy="40" r="4.5" fill="#0b0b0d"/>'},
+  {n:'Coaxial', aka:'Cabo de antena', tags:['tv'], add:'Cabo coaxial (antena)',
+   use:'Liga a antena digital ou a TV a cabo na televisão. Tem rosca e um pininho no meio.',
+   svg:'<polygon class="s" points="86,40 73,17 47,17 34,40 47,63 73,63"/><circle class="s" cx="60" cy="40" r="13"/><circle class="of" cx="60" cy="40" r="3"/>'},
+  {n:'Plugue P4', aka:'Plugue de fonte', tags:['camera','internet','som'], add:'Plugue P4 / fonte',
+   use:'A ponta redonda e oca das fontes de câmera, roteador, fita de LED e aparelhos de som.',
+   svg:'<rect class="f" x="66" y="26" width="42" height="28" rx="6"/><rect class="s" x="18" y="31" width="48" height="18" rx="3"/><ellipse class="o" cx="18" cy="40" rx="3" ry="6"/>'},
+  {n:'Cabo de rede', aka:'RJ45 · internet', tags:['internet','tv','pc'], add:'Cabo de rede (internet)',
+   use:'Leva a internet do roteador para o computador, a smart TV ou o videogame, sem falhar.',
+   svg:'<rect class="s" x="36" y="16" width="48" height="40" rx="4"/><rect class="s" x="50" y="56" width="20" height="9" rx="2"/><path class="o" d="M43 24v12M48 24v12M53 24v12M58 24v12M63 24v12M68 24v12M73 24v12M78 24v12"/>'}
+];
+const FILTROS = [['todos','Todos'],['tv','TV'],['celular','Celular'],['som','Som'],['internet','Internet'],['camera','Câmeras'],['pc','Computador']];
+$('#cnFilter').innerHTML = FILTROS.map(([k,l],i) => `<button type="button" data-f="${k}" aria-pressed="${i===0}">${l}</button>`).join('');
+$('#cnGrid').innerHTML = CABOS.map((c,i) => `
+  <article class="cn" data-tags="${c.tags.join(' ')}" style="animation-delay:${i*40}ms">
+    <div class="art"><svg viewBox="0 0 120 80" aria-hidden="true">${c.svg}</svg></div>
+    <h4>${c.n}</h4>
+    <div class="aka">${c.aka}</div>
+    <p>${c.use}</p>
+    <button type="button" data-add="${esc(c.add)}">+ Adicionar à lista</button>
+  </article>`).join('');
+$('#cnFilter').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  $$('#cnFilter button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  const f = b.dataset.f;
+  $$('#cnGrid .cn').forEach(c => {
+    const show = f === 'todos' || c.dataset.tags.split(' ').includes(f);
+    c.hidden = !show;
+    if (show){ c.style.animation = 'none'; void c.offsetWidth; c.style.animation = ''; }
+  });
+});
+$('#cnGrid').addEventListener('click', e => { const b = e.target.closest('[data-add]'); if (b) addItem(b.dataset.add); });
+
+/* O carregador serve? */
+const lerNum = id => parseFloat(($('#' + id).value || '').replace(',', '.'));
+const br = n => n.toLocaleString('pt-BR', {maximumFractionDigits:2});
+function testarCarregador(){
+  const ov = lerNum('ovV'), oa = lerNum('ovA'), nv = lerNum('nvV'), na = lerNum('nvA');
+  const plugOk = $('input[name=plug]:checked').value === 'sim';
+  let cls, ico, tit, txt;
+  if (![ov, oa, nv, na].every(x => x > 0)){
+    cls = 'wait'; ico = '?'; tit = 'Preencha os 4 números';
+    txt = 'Eles estão na linha OUTPUT da etiqueta, perto das letras V e A.';
+  } else if (Math.abs(nv - ov) / ov > 0.05){
+    cls = 'bad'; ico = '✕'; tit = 'Não serve';
+    txt = `A voltagem é diferente (${br(ov)}V × ${br(nv)}V). Com voltagem errada o aparelho pode estragar.`;
+  } else if (na < oa * 0.98){
+    cls = 'warn'; ico = '!'; tit = 'Não é o ideal';
+    txt = `A corrente do novo é menor (${br(na)}A, o antigo é ${br(oa)}A). Ele pode esquentar e não dar conta de carregar.`;
+  } else if (!plugOk){
+    cls = 'bad'; ico = '✕'; tit = 'O plugue precisa ser igual';
+    txt = 'Os números batem, mas a ponta tem que encaixar firme, no mesmo formato. A loja tem adaptadores.';
+  } else {
+    cls = 'ok'; ico = '✓'; tit = 'Serve!';
+    txt = na > oa * 1.02
+      ? `Voltagem igual e corrente maior (${br(na)}A). Tudo certo: o aparelho só usa o que precisa.`
+      : 'Voltagem e corrente iguais e o plugue encaixa. Pode usar sem medo.';
+  }
+  const v = $('#verdict');
+  const mudou = !v.classList.contains(cls);
+  v.className = 'verdict ' + cls + (mudou ? ' pop' : '');
+  v.innerHTML = `<span class="vi">${ico}</span><div><b>${tit}</b><span>${txt}</span></div>`;
+}
+['ovV','ovA','nvV','nvA'].forEach(id => $('#' + id).addEventListener('input', testarCarregador));
+$$('input[name=plug]').forEach(r => r.addEventListener('change', testarCarregador));
+$('#ckAdd').addEventListener('click', () => {
+  const ov = lerNum('ovV'), oa = lerNum('ovA');
+  if (!(ov > 0 && oa > 0)){ toast('Preencha os números do carregador antigo'); $('#ovV').focus(); return; }
+  addItem(`Carregador ${br(ov)}V ${br(oa)}A (igual ao meu antigo)`);
+});
+testarCarregador();
 
 /* ════════════ ENTRADA + LINHA DE PROGRESSO ════════════ */
 const io = new IntersectionObserver(en => en.forEach(x => { if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }), {threshold:.15, rootMargin:'0px 0px -40px 0px'});
