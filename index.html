@@ -30,6 +30,21 @@
   })();
 </script>
 
+<!-- Recarregar a página sempre volta ao topo. Sem isto o navegador devolve
+     a pessoa para onde ela estava, ou para a seção do último clique no menu. -->
+<script>
+  (function () {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    function topo() {
+      var h = document.documentElement, b = h.style.scrollBehavior;
+      h.style.scrollBehavior = "auto"; window.scrollTo(0, 0); h.style.scrollBehavior = b;
+    }
+    window.addEventListener("pageshow", topo);
+    window.addEventListener("beforeunload", topo);
+  })();
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -138,7 +153,7 @@
 
 *{box-sizing:border-box}
 /* imagem de fundo: trilhas de placa de circuito, bem discretas */
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip;background:var(--trace) 0 0/560px 560px repeat,var(--bg);transition:background-color .35s}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip;background:var(--trace) 0 0/560px 560px repeat,var(--bg);transition:background-color .35s}
 body{margin:0;color:var(--tx);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
 img,svg{display:block;max-width:100%}
 a{color:inherit}
@@ -279,7 +294,9 @@ h1 .b em::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:
 @media (max-width:760px){.facts .wrap{grid-template-columns:1fr 1fr}.fact:nth-child(2){border-right:0}.fact:nth-child(3){padding-left:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 
 /* faixa */
-.ticker{background:var(--grad);color:#0b0b0d;overflow:hidden;padding:15px 0;transform:rotate(-1.2deg) scale(1.03);margin:clamp(40px,6vw,70px) 0}
+/* a faixa é inclinada e um pouco mais larga que a tela: a moldura corta o excesso para a página não balançar para os lados */
+.ticker-wrap{overflow:hidden;padding:16px 0;margin:clamp(24px,5vw,54px) 0}
+.ticker{background:var(--grad);color:#0b0b0d;overflow:hidden;padding:15px 0;transform:rotate(-1.2deg) scale(1.03)}
 .ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
 .ticker span{font-size:1rem;font-weight:700;padding:0 22px;display:flex;align-items:center;gap:22px;white-space:nowrap}
 .ticker span::after{content:"";width:8px;height:8px;background:#0b0b0d;transform:rotate(45deg)}
@@ -605,7 +622,7 @@ footer .wrap{position:relative}
   </div>
 </section>
 
-<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+<div class="ticker-wrap" aria-hidden="true"><div class="ticker"><div class="ticker-track" id="ticker"></div></div></div>
 
 <!-- ═════════ PRODUTOS ═════════ -->
 <section class="sec" id="produtos">
