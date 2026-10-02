@@ -135,14 +135,6 @@
   --map-filter:brightness(.7) saturate(.85);
   --shadow:0 1px 0 rgba(0,0,0,.2),0 14px 30px -18px rgba(0,0,0,.8);
 }
-/* peças que são "objetos claros" nos dois temas (cupom, gaveteiro) */
-.force-light{
-  --tx:#0b0b0d;--tx-2:#3b3c42;--tx-3:#6b6c72;
-  --line:rgba(11,11,13,.12);--line-2:rgba(11,11,13,.24);
-  --inv-bg:#0b0b0d;--inv-tx:#f4f1ea;
-  --blue-t:#0a3cff;--orange-t:#d4520a;
-  color:var(--tx);
-}
 
 *{box-sizing:border-box}
 /* imagem de fundo: trilhas de placa de circuito, bem discretas */
@@ -304,145 +296,17 @@ h2{margin:0;font-weight:900;font-size:clamp(2.3rem,5.4vw,4.6rem);line-height:.92
 h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;color:var(--blue-t)}
 .sec-head p{margin:18px 0 0;max-width:40em;color:var(--tx-2);font-size:1.08rem}
 
-/* ───────── painel preto (guia rápido) ───────── */
-.dark{background:var(--night);color:var(--on-night);overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
-.dark::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 85% 20%,rgba(10,60,255,.38),transparent 60%),radial-gradient(600px 380px at 5% 100%,rgba(255,110,10,.2),transparent 60%);pointer-events:none}
-.dark .wrap{position:relative}
-.dark .kicker{color:var(--on-night-2)}
-.dark .kicker b{background:var(--grad);color:#0b0b0d}
-.dark h2 i{color:var(--orange)}
-.dark .sec-head p{color:var(--on-night-2)}
-/* abas */
-.tabs{display:inline-flex;flex-wrap:wrap;gap:6px;padding:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;margin-bottom:28px}
-.tabs button{display:flex;align-items:center;gap:10px;border:0;background:transparent;color:var(--on-night-2);font-weight:700;font-size:1rem;padding:12px 18px;border-radius:13px;cursor:pointer;transition:.2s}
-.tabs button svg{width:20px;height:20px}
-.tabs button:hover{color:#fff;background:rgba(255,255,255,.06)}
-.tabs button[aria-selected="true"]{background:var(--grad);color:#0b0b0d}
-.pane{animation:swap .45s cubic-bezier(.2,.8,.2,1)}
-.pane[hidden]{display:none}
-@media (max-width:560px){.tabs{display:grid;grid-template-columns:1fr 1fr;width:100%}.tabs button{justify-content:center;font-size:.9rem;padding:12px 8px;text-align:center}.tabs button svg{display:none}}
-
-/* qual é o meu cabo? */
-.cn-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;align-items:center}
-.cn-filter::before{content:"Para usar em:";font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--on-night-2);margin-right:4px}
-.cn-filter button{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);color:var(--on-night);border-radius:999px;padding:8px 15px;cursor:pointer;font-size:.92rem;transition:.2s}
-.cn-filter button:hover{border-color:var(--orange)}
-.cn-filter button[aria-pressed="true"]{background:#fff;color:#0b0b0d;border-color:#fff;font-weight:700}
-.cn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
-.cn{display:flex;flex-direction:column;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:14px;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),border-color .3s,background .3s;animation:swap .4s cubic-bezier(.2,.8,.2,1) both}
-.cn[hidden]{display:none}
-.cn:hover{transform:translateY(-4px);border-color:rgba(255,138,15,.6);background:rgba(255,255,255,.06)}
-.cn .art{height:118px;border-radius:14px;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(10,60,255,.32),transparent 70%),#111218;border:1px solid rgba(255,255,255,.06);margin-bottom:14px;overflow:hidden}
-.cn .art svg{width:72%;max-width:170px;height:auto;transition:transform .4s cubic-bezier(.2,.9,.3,1.3)}
-.cn:hover .art svg{transform:scale(1.08)}
-.cn .art .s{fill:none;stroke:#f1efe9;stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
-.cn .art .f{fill:#f1efe9}
-.cn .art .o{fill:none;stroke:#ff8a0f;stroke-width:2.4;stroke-linecap:round}
-.cn .art .of{fill:#ff8a0f}
-.cn h4{margin:0;font-size:1.2rem;font-weight:800;font-variation-settings:"wdth" 90;line-height:1.1}
-.cn .aka{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--orange);margin:5px 0 8px}
-.cn p{margin:0 0 14px;color:var(--on-night-2);font-size:.92rem;line-height:1.45}
-.cn button{margin-top:auto;align-self:flex-start;background:transparent;border:1px solid rgba(255,255,255,.22);color:var(--on-night);border-radius:999px;padding:7px 14px;font-size:.84rem;font-weight:600;cursor:pointer;transition:.2s}
-.cn button:hover{background:var(--blue);border-color:var(--blue);color:#fff}
-.cn-note{margin:18px 0 0;color:var(--on-night-2);font-size:.82rem}
-@media (max-width:560px){
-  .cn-filter{flex-wrap:nowrap;overflow-x:auto;margin:0 calc(var(--gutter) * -1) 18px;padding:0 var(--gutter) 4px;scrollbar-width:none}
-  .cn-filter::-webkit-scrollbar{display:none}
-  .cn-filter::before{display:none}
-  .cn-filter button{flex-shrink:0}
-  .cn-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .cn{padding:10px;border-radius:16px}
-  .cn .art{height:78px;margin-bottom:10px;border-radius:11px}
-  .cn h4{font-size:1.02rem}
-  .cn .aka{font-size:.6rem}
-  .cn p{font-size:.8rem;margin-bottom:10px}
-  .cn button{font-size:.74rem;padding:6px 10px}
-}
-
-/* o carregador serve? */
-.carr{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,3vw,40px);align-items:start}
-.lbl-demo{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:clamp(18px,2.4vw,28px)}
-.brick{position:relative;margin:4px auto 26px;max-width:440px;background:linear-gradient(160deg,#2b2c32,#17181c);border-radius:22px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 24px 40px -20px rgba(0,0,0,.8)}
-.brick::before,.brick::after{content:"";position:absolute;top:50%;width:46px;height:12px;margin-top:-6px;background:#17181c;border-radius:6px}
-.brick::before{left:-38px}.brick::after{right:-38px}
-.sticker{background:#e9e6de;color:#2a2a2e;border-radius:8px;padding:14px 16px;font-family:var(--mono);font-size:.78rem;line-height:1.5;display:flex;flex-direction:column;gap:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
-.sticker b{font-size:.92rem;letter-spacing:.06em}
-.sticker .tiny{font-size:.62rem;color:#7a776f;margin-top:4px}
-.sticker .hl{position:relative;display:block;border-radius:5px;padding:3px 6px;margin:0 -6px}
-.sticker .hl-in{background:rgba(120,120,130,.18)}
-.sticker .hl-out{background:rgba(10,60,255,.08);font-weight:600;font-size:.86rem}
-.sticker em{font-style:normal;position:relative;padding:1px 4px;border-radius:4px}
-.sticker em.v{background:#ff8a0f;color:#0b0b0d}
-.sticker em.a{background:#0a3cff;color:#fff}
-.sticker i{position:absolute;top:-10px;right:-10px;width:18px;height:18px;border-radius:50%;font-style:normal;font-size:.62rem;font-weight:700;display:grid;place-items:center;background:#0b0b0d;color:#fff;border:2px solid #e9e6de;animation:ping 2.4s infinite}
-.sticker .hl-in i{top:50%;right:-14px;margin-top:-9px;background:#6b6c72}
-@keyframes ping{0%,100%{box-shadow:0 0 0 0 rgba(255,138,15,.6)}50%{box-shadow:0 0 0 6px rgba(255,138,15,0)}}
-.legend{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.legend li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start}
-.legend i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.85rem}
-.legend .c1{background:#ff8a0f;color:#0b0b0d}.legend .c2{background:#0a3cff;color:#fff}.legend .c3{background:#6b6c72;color:#fff}.legend .c4{background:#fff;color:#0b0b0d}
-.legend b{display:block;font-size:1rem}
-.legend span{color:var(--on-night-2);font-size:.9rem}
-.where{margin:18px 0 0;padding-top:16px;border-top:1px dashed rgba(255,255,255,.15);color:var(--on-night-2);font-size:.9rem}
-.where b{color:#fff}
-
-.checker{background:var(--night-2);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:14px}
-.checker h3{margin:0;font-size:1.6rem;font-weight:800;font-variation-settings:"wdth" 85;line-height:1}
-.checker>p{margin:0;color:var(--on-night-2)}
-.checker>p b{color:#fff}
-.ck-row{display:grid;grid-template-columns:1fr 104px 104px;gap:8px;align-items:center}
-.ck-l{font-weight:600}
-.unit{position:relative;display:block}
-.unit input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 30px 12px 12px;color:#fff;font-family:var(--mono);font-size:1.05rem;outline:0}
-.unit input:focus{border-color:var(--orange)}
-.unit span{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-weight:600;color:var(--on-night-2);pointer-events:none}
-.ck-row:nth-of-type(1) .unit:nth-of-type(1) span,.ck-row:nth-of-type(2) .unit:nth-of-type(1) span{color:#ff8a0f}
-.ck-row .unit:nth-of-type(2) span{color:#8aa6ff}
-.ck-plug{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.seg2{display:inline-grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,.2);border-radius:999px;overflow:hidden}
-.seg2 label{position:relative;cursor:pointer;padding:8px 18px;font-weight:600;font-size:.92rem}
-.seg2 input{position:absolute;opacity:0}
-.seg2 label:has(input:checked){background:#fff;color:#0b0b0d}
-.seg2 label:has(input:focus-visible){outline:2px solid var(--orange);outline-offset:-3px}
-.verdict{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:center;border-radius:16px;padding:16px;border:1.5px solid;transition:background .3s,border-color .3s}
-.verdict .vi{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;font-weight:900}
-.verdict b{display:block;font-size:1.2rem;line-height:1.15}
-.verdict span{color:var(--on-night-2);font-size:.92rem}
-.verdict.ok{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.55)}
-.verdict.ok .vi{background:#22c55e;color:#06210f}
-.verdict.warn{background:rgba(255,138,15,.1);border-color:rgba(255,138,15,.6)}
-.verdict.warn .vi{background:#ff8a0f;color:#0b0b0d}
-.verdict.bad{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.6)}
-.verdict.bad .vi{background:#ef4444;color:#fff}
-.verdict.wait{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.15)}
-.verdict.wait .vi{background:rgba(255,255,255,.12);color:#fff}
-.verdict.pop{animation:pop .4s cubic-bezier(.2,.9,.3,1.4)}
-@keyframes pop{40%{transform:scale(1.02)}}
-.checker .btn{width:100%}
-.ck-foot{color:var(--on-night-2);font-size:.78rem;line-height:1.5}
-@media (max-width:980px){.carr{grid-template-columns:1fr}}
-@media (max-width:480px){.ck-row{grid-template-columns:1fr 1fr}.ck-l{grid-column:span 2}.brick::before,.brick::after{display:none}}
-
-/* ───────── mais procurados ───────── */
-.dst-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.dst{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.9,.3,1.2),border-color .3s}
-.dst:hover{transform:translateY(-4px);border-color:var(--orange)}
-.dst .art{height:138px;border-radius:14px;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,rgba(10,60,255,.35),transparent 70%),#0f1015;margin-bottom:14px;overflow:hidden}
-.dst .art svg{width:82%;max-width:200px;height:auto;transition:transform .45s cubic-bezier(.2,.9,.3,1.3)}
-.dst:hover .art svg{transform:scale(1.07) rotate(-2deg)}
-.dst .brand-tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:var(--orange-t)}
-.dst h4{margin:4px 0 6px;font-size:1.18rem;font-weight:800;line-height:1.12;font-variation-settings:"wdth" 88}
-.dst p{margin:0 0 12px;color:var(--tx-2);font-size:.92rem;line-height:1.45}
-.vars{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
-.vars button{border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:5px 11px;font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s}
-.vars button:hover{border-color:var(--orange)}
-.vars button[aria-pressed="true"]{background:var(--inv-bg);color:var(--inv-tx);border-color:var(--inv-bg)}
-.vars.sw button{width:26px;height:26px;padding:0;border-radius:50%;border:2px solid var(--line);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
-.vars.sw button[aria-pressed="true"]{border-color:var(--orange);box-shadow:0 0 0 2px var(--orange);transform:scale(1.08)}
-.dst .hint{font-size:.82rem;color:var(--tx-3);min-height:1.3em;margin-bottom:12px}
-.dst .hint b{color:var(--tx)}
-.dst .add-b{margin-top:auto;border:0;background:var(--blue);color:#fff;border-radius:12px;padding:11px 12px;font-weight:700;font-size:.88rem;cursor:pointer;transition:.2s}
-.dst .add-b:hover{background:var(--blue-d)}
+/* ───────── produtos ───────── */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.cat{background:var(--card);padding:26px 24px;display:flex;flex-direction:column;gap:8px;transition:background .25s}
+.cat:hover{background:var(--bg)}
+.cat .ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:rgba(255,138,15,.14);color:var(--orange-t);margin-bottom:6px}
+.cat:nth-child(even) .ico{background:rgba(10,60,255,.1);color:var(--blue-t)}
+.cat .ico svg{width:24px;height:24px}
+.cat h3{margin:0;font-size:1.15rem;font-weight:800;font-variation-settings:"wdth" 90;line-height:1.15}
+.cat p{margin:0;color:var(--tx-3);font-size:.93rem;line-height:1.45}
+@media (max-width:980px){.cats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.cat{padding:18px 16px}.cat h3{font-size:1rem}.cat p{font-size:.85rem}}
 .brands{margin-top:clamp(36px,5vw,56px);padding-top:24px;border-top:1px solid var(--line);display:flex;align-items:center;gap:14px 28px;flex-wrap:wrap}
 .brands .mono{color:var(--tx-3)}
 .brands ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 30px;align-items:center}
@@ -476,111 +340,27 @@ h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;co
 .facade figcaption{position:absolute;left:12px;bottom:12px;background:rgba(11,11,13,.86);color:#fff;border-radius:999px;padding:7px 14px;font-size:.84rem;font-weight:600;display:flex;align-items:center;gap:8px;backdrop-filter:blur(6px)}
 .facade figcaption::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange)}
 
-/* ───────── gavetas ───────── */
-.cabinet{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(20px,3vw,40px);align-items:start}
-.cab-hint{display:flex;align-items:center;gap:10px;margin:0 0 12px;color:var(--tx-3);font-size:.95rem}
-.cab-hint svg{width:22px;height:22px;color:var(--orange);animation:nudge 1.6s ease-in-out infinite}
-@keyframes nudge{50%{transform:translate(3px,3px)}}
-.drawers{background:linear-gradient(#d9d3c3,#cfc8b6);padding:14px;border-radius:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;box-shadow:inset 0 2px 0 rgba(255,255,255,.5),0 20px 40px -24px rgba(0,0,0,.5);perspective:900px}
-:root[data-tema="escuro"] .drawers{filter:brightness(.88)}
-@media (prefers-color-scheme:dark){:root:not([data-tema="claro"]) .drawers{filter:brightness(.88)}}
-.drawer{position:relative;aspect-ratio:1.2;border:0;padding:0;cursor:pointer;background:transparent;transform-style:preserve-3d}
-.drawer .face{position:absolute;inset:0;border-radius:8px;background:linear-gradient(160deg,rgba(255,255,255,.75),rgba(236,240,238,.45));border:1px solid rgba(0,0,0,.14);box-shadow:inset 0 -6px 12px rgba(0,0,0,.05),0 2px 0 rgba(0,0,0,.12);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:12px 8px 10px;transition:transform .45s cubic-bezier(.2,.9,.25,1.2),box-shadow .45s;overflow:hidden}
-.drawer .face::before{content:"";position:absolute;inset:14% 12% 34%;background:rgba(0,0,0,.035);border-radius:4px}
-.drawer svg.g{position:relative;width:40%;height:auto;color:var(--tx-2);margin-top:2px}
-.drawer .lbl{position:relative;background:#fbfaf6;border:1px solid rgba(0,0,0,.12);font-size:.74rem;font-weight:600;padding:3px 7px;border-radius:4px;line-height:1.2;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.drawer .pull{position:absolute;bottom:4px;left:50%;width:34%;height:5px;margin-left:-17%;background:rgba(0,0,0,.2);border-radius:0 0 6px 6px}
-.drawer:hover .face{transform:translateZ(18px) translateY(-2px);box-shadow:0 14px 20px -10px rgba(0,0,0,.45)}
-.drawer[aria-pressed="true"] .face{transform:translateZ(30px) translateY(6px);box-shadow:0 24px 26px -12px rgba(0,0,0,.55);background:linear-gradient(160deg,#fff,#f3efe6)}
-.drawer[aria-pressed="true"] svg.g{color:var(--blue)}
-.drawer[aria-pressed="true"] .lbl{background:var(--grad);color:#0b0b0d;border-color:var(--orange)}
-.drawer:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:8px}
-.drawer-panel{position:sticky;top:96px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,2.4vw,30px);box-shadow:var(--shadow)}
-.drawer-panel .mono{color:var(--orange-t)}
-.drawer-panel h3{margin:6px 0 10px;font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:800;letter-spacing:-.02em;line-height:1;font-variation-settings:"wdth" 80}
-.drawer-panel p{margin:0 0 6px;color:var(--tx-2)}
-.drawer-panel .for{font-size:.92rem;color:var(--tx-3);margin-bottom:16px}
-.drawer-panel .for b{color:var(--tx)}
-.drawer-panel ul{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--line)}
-.drawer-panel li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.96rem}
-.drawer-panel li button{flex-shrink:0;border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:5px 12px;cursor:pointer;font-size:.8rem;font-weight:600;transition:.2s;white-space:nowrap}
-.drawer-panel li button:hover{background:var(--blue);border-color:var(--blue);color:#fff}
-.drawer-panel .anim{animation:swap .45s cubic-bezier(.2,.8,.2,1)}
-.drawer-panel .btn{width:100%}
-@media (max-width:980px){.cabinet{grid-template-columns:1fr}.drawer-panel{position:relative;top:0}}
-@media (max-width:560px){.drawers{grid-template-columns:repeat(3,1fr);gap:8px;padding:10px}.drawer .lbl{font-size:.62rem;padding:2px 5px}}
-
-/* ───────── lista ───────── */
-.bom{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,64px);align-items:start}
-.bom-copy ol{list-style:none;counter-reset:s;margin:26px 0 0;padding:0}
-.bom-copy li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
-.bom-copy li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:.8rem;color:var(--orange-t);padding-top:3px}
-.bom-copy li b{display:block}
-.bom-copy li span{color:var(--tx-3);font-size:.95rem}
-.ticket{position:relative;background:#fdfcf8;padding:30px clamp(20px,3vw,34px) 34px;box-shadow:0 30px 50px -30px rgba(0,0,0,.55);font-family:var(--mono);transform:rotate(.6deg)}
-.ticket::before,.ticket::after{content:"";position:absolute;left:0;right:0;height:12px;background:radial-gradient(circle at 8px 0,transparent 7px,#fdfcf8 7.5px) 0 0/16px 12px repeat-x}
-.ticket::before{top:-11px;transform:scaleY(-1)}
-.ticket::after{bottom:-11px}
-.ticket-h{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1.5px dashed var(--tx);padding-bottom:14px;margin-bottom:14px}
-.ticket-h .tl{display:flex;align-items:center;gap:12px}
-.ticket-h .logo{width:48px;height:48px;border-radius:12px;background:#0b0b0d;display:grid;place-items:center;flex-shrink:0}
-.ticket-h .logo img{width:40px;height:auto}
-.ticket-h strong{font-family:var(--sans);font-weight:900;font-size:1.45rem;font-variation-settings:"wdth" 75;letter-spacing:-.01em;line-height:1}
-.ticket-h small{display:block;font-size:.66rem;color:var(--tx-3);margin-top:5px;letter-spacing:.05em}
-.ticket-h .no{font-size:.72rem;text-align:right;color:var(--tx-3)}
-.add{display:grid;grid-template-columns:1fr 70px auto;gap:8px;margin-bottom:12px}
-.add input{border:1.5px solid var(--tx);background:transparent;border-radius:10px;padding:11px 12px;font-family:var(--mono);font-size:.9rem;outline:0;min-width:0;color:var(--tx)}
-.add input:focus{border-color:var(--blue)}
-.add button{border:0;background:var(--inv-bg);color:var(--inv-tx);border-radius:10px;padding:0 16px;font-weight:600;cursor:pointer;font-family:var(--mono)}
-.add button:hover{background:var(--blue);color:#fff}
-.items{list-style:none;margin:0;padding:0;min-height:120px}
-.items li{display:grid;grid-template-columns:28px 1fr auto auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px dotted var(--line-2);font-size:.9rem;animation:swap .35s}
-.items li .n{color:var(--tx-3);font-size:.74rem}
-.items li .q{display:flex;align-items:center;gap:4px}
-.items li .q button,.items li .x{border:1px solid var(--line-2);background:transparent;width:28px;height:28px;border-radius:7px;cursor:pointer;font-family:var(--mono);line-height:1;color:var(--tx)}
-.items li .q button:hover,.items li .x:hover{background:var(--inv-bg);color:var(--inv-tx)}
-.items li .q b{min-width:26px;text-align:center;font-weight:600}
-.items .empty{display:block;text-align:center;color:var(--tx-3);padding:30px 10px;border:0;font-size:.84rem;line-height:1.6}
-.ticket-f{margin-top:16px;display:grid;gap:14px}
-.seg{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--tx);border-radius:12px;overflow:hidden}
-.seg label{position:relative;cursor:pointer;text-align:center;padding:10px 6px;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase}
-.seg input{position:absolute;opacity:0}
-.seg label:has(input:checked){background:var(--inv-bg);color:var(--inv-tx)}
-.seg label:has(input:focus-visible){outline:2px solid var(--blue);outline-offset:-4px}
-.ticket .btn{width:100%;font-family:var(--sans);padding:16px}
-.ticket .barcode{height:38px;margin-top:6px;background:repeating-linear-gradient(90deg,#0b0b0d 0 2px,transparent 2px 4px,#0b0b0d 4px 5px,transparent 5px 8px,#0b0b0d 8px 11px,transparent 11px 12px);opacity:.85}
-.ticket .tiny{font-size:.64rem;color:var(--tx-3);text-align:center;letter-spacing:.08em}
-@media (max-width:980px){.bom{grid-template-columns:1fr}}
-@media (max-width:440px){.add{grid-template-columns:1fr 64px}.add button{grid-column:span 2;padding:11px}}
-
 /* ───────── conserto ───────── */
 .repair{background:color-mix(in srgb,var(--bg-2) 85%,transparent);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.flow{position:relative;display:grid;grid-template-columns:repeat(6,1fr)}
-.flow svg.wire{position:absolute;left:0;right:0;top:34px;width:100%;height:8px;overflow:visible}
-.flow .wire path{stroke:var(--line-2);stroke-width:2;fill:none}
-.flow .wire .lit{stroke:var(--orange);stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.5,0,.2,1)}
-.flow.in .wire .lit{stroke-dashoffset:0}
-.stage{position:relative;padding:0 14px 0 0}
-.stage .blk{width:68px;height:68px;border-radius:16px;background:var(--card);border:1.5px solid var(--tx);display:grid;place-items:center;position:relative;z-index:1;transition:background .3s,color .3s,border-color .3s}
-.stage .blk svg{width:30px;height:30px}
-.flow.in .stage .blk{background:var(--inv-bg);color:var(--inv-tx)}
-.flow.in .stage:nth-child(3) .blk{transition-delay:.45s}.flow.in .stage:nth-child(4) .blk{transition-delay:.9s}.flow.in .stage:nth-child(5) .blk{transition-delay:1.35s}.flow.in .stage:nth-child(6) .blk{transition-delay:1.8s}.flow.in .stage:nth-child(7) .blk{transition-delay:2.25s;background:var(--blue);border-color:var(--blue);color:#fff}
-.stage .mono{display:block;color:var(--orange-t);margin:18px 0 6px}
-.stage h4{margin:0 0 6px;font-size:1.12rem;font-weight:700;font-variation-settings:"wdth" 90;line-height:1.15}
-.stage p{margin:0;font-size:.92rem;color:var(--tx-2);line-height:1.45}
+.steps3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px);counter-reset:st}
+.steps3 li{counter-increment:st;position:relative;padding-top:60px}
+.steps3 li::before{content:counter(st);position:absolute;top:0;left:0;width:44px;height:44px;border-radius:50%;background:var(--inv-bg);color:var(--inv-tx);display:grid;place-items:center;font-weight:800;font-family:var(--mono)}
+.steps3 li:last-child::before{background:var(--blue);color:#fff}
+.steps3 li::after{content:"";position:absolute;top:21px;left:58px;right:-8px;height:2px;background:linear-gradient(90deg,var(--orange),transparent)}
+.steps3 li:last-child::after{display:none}
+.steps3 h4{margin:0 0 6px;font-size:1.25rem;font-weight:800;font-variation-settings:"wdth" 90}
+.steps3 p{margin:0;color:var(--tx-2)}
 .fixes{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(40px,5vw,60px);align-items:center}
 .fixes .mono{color:var(--tx-3);margin-right:6px}
 .fixes span.t{border:1.5px solid var(--tx);border-radius:999px;padding:8px 16px;font-weight:500;font-size:.95rem}
-.repair .cta-row{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.repair .cta-row small{color:var(--tx-3);font-size:.9rem}
-@media (max-width:980px){
-  .flow{grid-template-columns:1fr;gap:26px}
-  .flow svg.wire{display:none}
-  .stage{display:grid;grid-template-columns:68px 1fr;gap:4px 18px;padding:0}
-  .stage .blk{grid-row:span 3}
-  .stage .mono{margin:4px 0 2px}
-  .stage::after{content:"";position:absolute;left:33px;top:72px;bottom:-24px;width:2px;background:var(--line-2)}
-  .stage:last-child::after{display:none}
+@media (max-width:760px){
+  .steps3{grid-template-columns:1fr;gap:18px}
+  .steps3 li{padding:0 0 0 58px;min-height:44px}
+  .steps3 li::after{display:none}
+  .steps3 h4{font-size:1.1rem;margin-bottom:2px}
+  .fixes{gap:8px}
+  .fixes span.t{font-size:.84rem;padding:6px 12px}
+  .fixes .mono{width:100%}
 }
 
 /* ───────── avaliações ───────── */
@@ -590,15 +370,6 @@ h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;co
 .stars{display:flex;gap:4px;margin:18px 0 8px;color:var(--orange)}
 .stars svg{width:24px;height:24px}
 .score-sub{color:var(--tx-2)}
-.themes{margin-top:26px;display:grid;gap:10px}
-.theme{display:grid;grid-template-columns:110px 1fr 36px;align-items:center;gap:12px;font-size:.92rem}
-.theme .bar{height:10px;background:var(--bg-2);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
-.theme .bar i{display:block;height:100%;width:0;background:var(--tx-2);border-radius:99px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
-.theme:first-child .bar i{background:var(--grad)}
-.theme:nth-child(2) .bar i{background:var(--blue)}
-.themes.in .bar i{width:var(--w)}
-.theme b{font-family:var(--mono);font-weight:500;text-align:right}
-.theme-note{font-size:.72rem;color:var(--tx-3);margin-top:8px}
 .cards{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .rev{margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),rotate .4s cubic-bezier(.2,.9,.3,1.3),translate .4s cubic-bezier(.2,.9,.3,1.3)}
 .rev:nth-child(1){rotate:-2deg}
@@ -633,18 +404,8 @@ h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;co
 @media (max-width:980px){.faq{grid-template-columns:1fr}.faq .side{position:static}}
 
 /* ───────── como chegar ───────── */
-.visit{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:start}
-.map{position:relative;border-radius:22px;overflow:hidden;background:#dcd6c6;border:1px solid var(--line);aspect-ratio:7/6;position:sticky;top:100px}
-.map svg{width:100%;height:100%;position:absolute;inset:0;filter:var(--map-filter)}
-.map .st{stroke:#f6f3ec;stroke-linecap:round;fill:none}
-.map .sn{font-family:var(--mono);font-size:10px;letter-spacing:.08em;fill:#7c7768;text-transform:uppercase}
-.map .sn.hl{fill:#d4520a;font-weight:600;font-size:12px}
-.map .blkm{fill:#d1cab7}
-.map .lm{font-family:var(--sans);font-size:11px;fill:#4a473f;font-weight:600}
-.map .pulse{fill:#0a3cff;opacity:.35;transform-origin:center;transform-box:fill-box;animation:pulse 2.2s ease-out infinite}
+.visit{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:center}
 @keyframes pulse{from{transform:scale(.4);opacity:.6}to{transform:scale(2.6);opacity:0}}
-.map-tag{position:absolute;left:16px;bottom:16px}
-.map-tag .mono{background:#f4f1ea;color:#6b6c72;padding:6px 10px;border-radius:8px;font-size:.64rem}
 .visit-info{display:flex;flex-direction:column;gap:22px}
 .addr{font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:800;line-height:1.02;letter-spacing:-.02em;font-variation-settings:"wdth" 80;margin:0}
 .addr span{display:block;font-weight:400;font-size:.5em;color:var(--tx-2);letter-spacing:0;margin-top:10px;font-variation-settings:"wdth" 100;line-height:1.4}
@@ -657,11 +418,8 @@ h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;co
 .kv dd.now{display:flex;align-items:center;gap:8px;justify-content:flex-end}
 .kv dd.now i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
 .kv dd.now.open i{background:#22c55e;box-shadow:0 0 8px #22c55e}
-.perks{display:flex;flex-wrap:wrap;gap:8px}
-.perks span{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-size:.9rem}
-.perks svg{width:16px;height:16px;color:var(--orange)}
 .visit-info .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
-@media (max-width:980px){.visit{grid-template-columns:1fr}.map{position:relative;top:0;aspect-ratio:4/3}}
+@media (max-width:980px){.visit{grid-template-columns:1fr}}
 
 /* ───────── rodapé (preto nos dois temas) ───────── */
 footer{background:var(--night);color:var(--on-night);padding-top:clamp(56px,7vw,90px);overflow:hidden;position:relative}
@@ -678,11 +436,7 @@ footer .wrap{position:relative}
 .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(255,255,255,.1);padding:18px 0;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:rgba(241,239,233,.5)}
 @media (max-width:900px){.foot-top{grid-template-columns:1fr}.foot-top .cta{justify-self:start;text-align:left}.foot{grid-template-columns:1fr 1fr}}
 
-/* botão flutuante + aviso */
-.fab{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:10px;background:#0b0b0d;color:#f1efe9;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:10px 12px 10px 16px;text-decoration:none;font-weight:600;font-size:.9rem;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);transform:translateY(120px);transition:transform .45s cubic-bezier(.2,.9,.3,1.2)}
-.fab.show{transform:none}
-.fab b{background:var(--grad);color:#0b0b0d;min-width:26px;height:26px;border-radius:99px;display:grid;place-items:center;font-family:var(--mono);font-size:.8rem;padding:0 6px}
-.fab.bump b{animation:bump .5s}
+/* aviso */
 @keyframes bump{40%{transform:scale(1.4)}}
 .toast{position:fixed;left:50%;bottom:24px;z-index:70;transform:translate(-50%,calc(100% + 60px));visibility:hidden;background:var(--card);color:var(--tx);border:1.5px solid var(--tx);border-radius:12px;padding:10px 16px;font-size:.88rem;font-weight:600;box-shadow:4px 4px 0 var(--orange);transition:transform .35s cubic-bezier(.2,.9,.3,1.2);max-width:calc(100vw - 32px)}
 .toast.show{transform:translate(-50%,0);visibility:visible}
@@ -710,8 +464,8 @@ footer .wrap{position:relative}
     </a>
     <nav class="nav" aria-label="Seções">
       <a href="#produtos">Produtos</a>
-      <a href="#guia">Guia rápido</a>
       <a href="#conserto">Conserto</a>
+      <a href="#avaliacoes">Avaliações</a>
       <a href="#duvidas">Dúvidas</a>
       <a href="#visite">Como chegar</a>
     </nav>
@@ -751,7 +505,7 @@ footer .wrap{position:relative}
 
       <div class="hero-ctas ld" style="--d:.28s">
         <a class="btn btn-ink" href="#produtos">Ver o que tem na loja</a>
-        <a class="btn btn-ghost" href="#guia">Qual é o meu cabo?</a>
+        <a class="btn btn-ghost" href="#visite">Como chegar</a>
       </div>
       <ul class="trust ld" style="--d:.36s">
         <li>Atendimento do próprio dono</li><li>Retirada na porta</li><li>Entrega na Grande Goiânia e Aparecida</li>
@@ -781,34 +535,24 @@ footer .wrap{position:relative}
 
 <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
 
-<!-- ═════════ PRODUTOS (GAVETAS) ═════════ -->
+<!-- ═════════ PRODUTOS ═════════ -->
 <section class="sec" id="produtos">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker mono"><b>01</b> Produtos</span>
       <h2>Tudo numa loja <i>só.</i></h2>
-      <p>Como no balcão da loja, cada gaveta guarda um tipo de produto. Toque em uma gaveta para ver o que tem dentro e para que serve.</p>
+      <p>Da pecinha que ninguém tem ao suporte da TV. Não achou aqui? Pergunte — provavelmente tem.</p>
     </div>
-    <div class="cabinet">
-      <div class="rv">
-        <p class="cab-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5a2 2 0 0 1 4 0v5M13 10V8.5a2 2 0 0 1 4 0V12M17 11a2 2 0 0 1 4 0v3a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.5L4.5 14a2 2 0 0 1 3.4-2L9 13.5"/></svg>Toque em uma gaveta</p>
-        <div class="drawers force-light" id="drawers" role="group" aria-label="Tipos de produto"></div>
-      </div>
-      <aside class="drawer-panel rv" id="panel" aria-live="polite"></aside>
+    <div class="cats rv">
+        <div class="cat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0zM12 17v5"/></svg></span><h3>Carregadores e fontes</h3><p>Notebook, celular, câmera, fita de LED e roteador.</p></div>
+        <div class="cat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20v-5a4 4 0 0 1 4-4h8a4 4 0 0 0 4-4V4"/><rect x="2" y="17" width="4" height="5" rx="1"/><rect x="18" y="1" width="4" height="5" rx="1"/></svg></span><h3>Cabos e conectores</h3><p>HDMI, som, USB, antena, adaptadores e controles.</p></div>
+        <div class="cat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M5 16v-4h14v4"/></svg></span><h3>Redes e internet</h3><p>Cabo de rede CAT.6, conectores e acessórios.</p></div>
+        <div class="cat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h13v8H3zM16 11l5-3v8l-5-3"/><circle cx="9.5" cy="12" r="2"/></svg></span><h3>Câmeras de segurança</h3><p>Câmeras, gravadores, fontes e cabos.</p></div>
+        <div class="cat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="15" height="11" rx="1.5"/><path d="M2 8v6M2 11h4M13 16v3M10 19h6"/></svg></span><h3>Suportes para TV</h3><p>Fixo, inclinável ou articulado, para todo tamanho.</p></div>
+        <div class="cat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l6-6M9 15l3 3 8-8-3-3zM14 7l3 3"/></svg></span><h3>Ferramentas</h3><p>Ferro de solda Hikari, estanho, multímetro e alicates.</p></div>
+        <div class="cat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span><h3>Componentes</h3><p>Resistores, capacitores, chips, fios e cobre estanhado.</p></div>
+        <div class="cat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span><h3>Limpeza e manutenção</h3><p>Álcool isopropílico 99,8%, pasta térmica e mais.</p></div>
     </div>
-  </div>
-</section>
-
-<!-- ═════════ MAIS PROCURADOS ═════════ -->
-<section class="sec" id="destaques" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker mono"><b>02</b> Mais procurados</span>
-      <h2>O que mais sai <i>no balcão.</i></h2>
-      <p>Produtos que a gente vende todo dia, explicados sem complicação. Escolha a opção que precisa e anote na sua lista.</p>
-    </div>
-    <div class="dst-grid" id="dstGrid"></div>
-
     <div class="brands rv">
       <span class="mono">Marcas que você encontra aqui</span>
       <ul>
@@ -818,153 +562,24 @@ footer .wrap{position:relative}
   </div>
 </section>
 
-<!-- ═════════ GUIA RÁPIDO ═════════ -->
-<section class="sec dark" id="guia">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker mono"><b>03</b> Guia rápido</span>
-      <h2>Aprenda em 1 minuto. <i>Compre sem errar.</i></h2>
-      <p>Dois guias para quem não é técnico: descubra o nome do cabo que você precisa e confira se um carregador serve no seu aparelho.</p>
-    </div>
-
-    <div class="tabs rv" role="tablist" aria-label="Guias">
-      <button type="button" role="tab" id="tab-cabos" aria-selected="true" aria-controls="pane-cabos">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20v-5a4 4 0 0 1 4-4h8a4 4 0 0 0 4-4V4"/><rect x="2" y="17" width="4" height="5" rx="1"/><rect x="18" y="1" width="4" height="5" rx="1"/></svg>
-        Qual é o meu cabo?
-      </button>
-      <button type="button" role="tab" id="tab-carr" aria-selected="false" aria-controls="pane-carr">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0zM12 17v5"/></svg>
-        O carregador serve?
-      </button>
-    </div>
-
-    <!-- Aba 1: identificador de cabos -->
-    <div class="pane" id="pane-cabos" role="tabpanel" aria-labelledby="tab-cabos">
-      <div class="cn-filter" id="cnFilter" role="group" aria-label="Filtrar por aparelho"></div>
-      <div class="cn-grid" id="cnGrid"></div>
-      <p class="cn-note">Os desenhos mostram a ponta do cabo (ou a entrada do aparelho) vista de frente ou de lado.</p>
-    </div>
-
-    <!-- Aba 2: o carregador serve? -->
-    <div class="pane" id="pane-carr" role="tabpanel" aria-labelledby="tab-carr" hidden>
-      <div class="carr">
-        <div class="lbl-demo">
-          <div class="brick" aria-hidden="true">
-            <div class="sticker">
-              <b>AC ADAPTER</b>
-              <span>MODEL: NB-90W</span>
-              <span class="hl hl-in"><i>3</i>INPUT: 100-240V ~ 1.5A 50/60Hz</span>
-              <span class="hl hl-out">OUTPUT: <em class="v"><i>1</i>19V</em> ⎓ <em class="a"><i>2</i>4.74A</em></span>
-              <span class="tiny">CE · FCC · BIVOLT</span>
-            </div>
-          </div>
-          <ol class="legend">
-            <li><i class="c1">1</i><div><b>V (volts) tem que ser IGUAL.</b><span>Se o antigo é 19V, o novo também precisa ser 19V.</span></div></li>
-            <li><i class="c2">2</i><div><b>A (amperes) pode ser igual ou MAIOR.</b><span>Nunca menor. O aparelho só puxa o que precisa.</span></div></li>
-            <li><i class="c3">3</i><div><b>INPUT 100-240V quer dizer bivolt.</b><span>Funciona em tomada 110 e 220.</span></div></li>
-            <li><i class="c4">+</i><div><b>O plugue precisa encaixar igual.</b><span>Mesmo formato e tamanho da ponta.</span></div></li>
-          </ol>
-          <p class="where">A etiqueta fica embaixo ou atrás do carregador. Procure a palavra <b>OUTPUT</b> (ou <b>SAÍDA</b>).</p>
-        </div>
-
-        <div class="checker" aria-live="polite">
-          <h3>Faça o teste</h3>
-          <p>Copie os números da linha <b>OUTPUT</b> dos dois carregadores.</p>
-          <div class="ck-row">
-            <span class="ck-l">Carregador antigo</span>
-            <label class="unit"><input id="ovV" type="text" inputmode="decimal" value="19" aria-label="Volts do carregador antigo"><span>V</span></label>
-            <label class="unit"><input id="ovA" type="text" inputmode="decimal" value="4,74" aria-label="Amperes do carregador antigo"><span>A</span></label>
-          </div>
-          <div class="ck-row">
-            <span class="ck-l">Carregador novo</span>
-            <label class="unit"><input id="nvV" type="text" inputmode="decimal" value="19" aria-label="Volts do carregador novo"><span>V</span></label>
-            <label class="unit"><input id="nvA" type="text" inputmode="decimal" value="6,32" aria-label="Amperes do carregador novo"><span>A</span></label>
-          </div>
-          <div class="ck-plug">
-            <span>O plugue encaixa igual?</span>
-            <div class="seg2" role="radiogroup" aria-label="O plugue encaixa igual?">
-              <label><input type="radio" name="plug" value="sim" checked>Sim</label>
-              <label><input type="radio" name="plug" value="nao">Não</label>
-            </div>
-          </div>
-          <div class="verdict" id="verdict"></div>
-          <button class="btn btn-orange" type="button" id="ckAdd">+ Anotar este carregador na lista</button>
-          <small class="ck-foot">Vale para carregadores e fontes comuns: notebook, câmera, roteador, fita de LED e som. Na dúvida, traga o antigo na loja que a gente confere.</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════ LISTA ═════════ -->
-<section class="sec" id="lista" style="padding-top:0">
-  <div class="wrap bom">
-    <div class="bom-copy">
-      <div class="sec-head rv" style="margin-bottom:10px">
-        <span class="kicker mono"><b>04</b> Lista de compras</span>
-        <h2>Anote tudo. <i>A gente separa.</i></h2>
-      </div>
-      <p class="rv" style="color:var(--tx-2);margin:0;font-size:1.08rem">Precisa de várias coisas? Faça uma lista, igual à do supermercado. Quando terminar, ela vai prontinha pelo WhatsApp e a loja responde com o que tem e o preço.</p>
-      <ol class="rv">
-        <li><div><b>Escreva o que precisa</b><span>Ou toque em “Adicionar” dentro das gavetas.</span></div></li>
-        <li><div><b>Escolha como receber</b><span>Retirar na loja ou receber em casa.</span></div></li>
-        <li><div><b>Envie pelo WhatsApp</b><span>A mensagem sai organizada, item por item.</span></div></li>
-      </ol>
-    </div>
-
-    <div class="ticket force-light rv" id="ticket">
-      <div class="ticket-h">
-        <div class="tl"><span class="logo"><img src="img/logo-ep.png" alt="" width="512" height="512"></span><div><strong>Minha lista</strong><small>ELETRÔNICA PREMIER · RUA 68, 283</small></div></div>
-        <div class="no">Nº <span id="ticketNo">0000</span><br><span id="ticketDate"></span></div>
-      </div>
-      <form class="add" id="addForm" autocomplete="off">
-        <input id="addName" type="text" placeholder="O que você precisa?" aria-label="Produto">
-        <input id="addQty" type="number" min="1" value="1" aria-label="Quantidade">
-        <button type="submit">+ ADD</button>
-      </form>
-      <ul class="items" id="items"></ul>
-      <div class="ticket-f">
-        <div class="seg" role="radiogroup" aria-label="Como receber">
-          <label><input type="radio" name="ship" value="retirar na loja" checked>Retirar na loja</label>
-          <label><input type="radio" name="ship" value="receber por entrega">Receber em casa</label>
-        </div>
-        <button class="btn btn-blue" type="button" id="sendList">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
-          Enviar lista pelo WhatsApp
-        </button>
-        <div class="barcode" aria-hidden="true"></div>
-        <div class="tiny">OBRIGADO PELA PREFERÊNCIA · VOLTE SEMPRE</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═════════ CONSERTO ═════════ -->
 <section class="sec repair" id="conserto">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker mono"><b>05</b> Conserto</span>
+      <span class="kicker mono"><b>02</b> Conserto</span>
       <h2>Estragou? <i>Antes de jogar fora, traz aqui.</i></h2>
       <p>Muitas vezes o conserto sai mais barato que um aparelho novo. Você traz, a gente descobre o defeito e só faz o serviço depois que você aprovar o preço.</p>
     </div>
 
-    <div class="flow" id="flow">
-      <svg class="wire" viewBox="0 0 1000 8" preserveAspectRatio="none" aria-hidden="true"><path d="M30 4 H900" pathLength="1"/><path class="lit" d="M30 4 H900" pathLength="1"/></svg>
-      <div class="stage"><div class="blk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v12H3zM8 7V4h8v3"/></svg></div><span class="mono">Passo 1</span><h4>Você traz</h4><p>Traga o aparelho e conte o que aconteceu.</p></div>
-      <div class="stage"><div class="blk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div><span class="mono">Passo 2</span><h4>A gente avalia</h4><p>O técnico abre e descobre o defeito.</p></div>
-      <div class="stage"><div class="blk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6zM9 11h6M9 15h6"/></svg></div><span class="mono">Passo 3</span><h4>Você aprova</h4><p>Passamos o preço. Só seguimos com o seu “ok”.</p></div>
-      <div class="stage"><div class="blk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></div><span class="mono">Passo 4</span><h4>Consertamos</h4><p>Trocamos o que estiver com defeito.</p></div>
-      <div class="stage"><div class="blk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div><span class="mono">Passo 5</span><h4>Testamos</h4><p>Ligamos e conferimos antes de devolver.</p></div>
-      <div class="stage"><div class="blk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><span class="mono">Passo 6</span><h4>Pronto!</h4><p>Você leva seu aparelho funcionando.</p></div>
-    </div>
+    <ol class="steps3 rv">
+      <li><h4>Você traz</h4><p>Traga o aparelho na loja e conte o que aconteceu.</p></li>
+      <li><h4>A gente avalia</h4><p>O técnico descobre o defeito e passa o preço.</p></li>
+      <li><h4>Você aprova e leva</h4><p>Só consertamos com o seu “ok” — e testamos antes de devolver.</p></li>
+    </ol>
 
     <div class="fixes rv">
       <span class="mono">Consertamos</span>
       <span class="t">Som e caixas de som</span><span class="t">Fontes e carregadores</span><span class="t">Notebook e computador</span><span class="t">Eletrônicos de casa</span><span class="t">Rádios e comunicação</span><span class="t">Placas eletrônicas</span>
-    </div>
-    <div class="cta-row rv">
-      <a class="btn btn-ink" href="#visite">Ver endereço da loja</a>
-      <small>Traga o aparelho de segunda a sexta, das 8h às 18h.</small>
     </div>
   </div>
 </section>
@@ -973,19 +588,12 @@ footer .wrap{position:relative}
 <section class="sec" id="avaliacoes">
   <div class="wrap voices">
     <div class="rv">
-      <span class="kicker mono"><b>06</b> Quem já comprou</span>
+      <span class="kicker mono"><b>03</b> Quem já comprou</span>
       <div class="score">4,9<sup>/5</sup></div>
       <div class="stars" aria-label="5 estrelas">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg>
       </div>
-      <div class="score-sub">64 avaliações no Google. O que os clientes mais elogiam:</div>
-      <div class="themes" id="themes">
-        <div class="theme"><span>Preço justo</span><div class="bar"><i style="--w:100%"></i></div><b>20</b></div>
-        <div class="theme"><span>Atendimento</span><div class="bar"><i style="--w:65%"></i></div><b>13</b></div>
-        <div class="theme"><span>Tira dúvidas</span><div class="bar"><i style="--w:20%"></i></div><b>4</b></div>
-        <div class="theme"><span>Vendedor</span><div class="bar"><i style="--w:10%"></i></div><b>2</b></div>
-      </div>
-      <div class="theme-note mono">Quantas avaliações citam cada assunto</div>
+      <div class="score-sub">64 avaliações no Google. Os clientes mais elogiam o <b>preço justo</b> e o <b>atendimento</b>.</div>
     </div>
 
     <div class="cards">
@@ -1009,19 +617,16 @@ footer .wrap{position:relative}
 <section class="sec" id="duvidas" style="padding-top:0">
   <div class="wrap faq">
     <div class="side rv">
-      <span class="kicker mono"><b>07</b> Dúvidas</span>
+      <span class="kicker mono"><b>04</b> Dúvidas</span>
       <h2>Perguntas <i>de quem chega.</i></h2>
       <p style="color:var(--tx-2);margin:18px 0 0">Não achou sua resposta? Ligue para a loja ou passe aqui — é rapidinho.</p>
       <a class="btn btn-ghost" href="tel:+556239450068"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Ligar: (62) 3945-0068</a>
     </div>
     <div class="qa rv">
-      <details open><summary>Não sei o nome da peça. E agora?<i></i></summary><div class="ans"><p>Sem problema — acontece com quase todo mundo. Se for um cabo, veja o <a href="#guia">Guia rápido</a>: lá estão os mais comuns, com nome e para que servem. Para outras peças, traga a peça velha na loja ou mande uma foto pelo WhatsApp que a gente identifica.</p></div></details>
-      <details><summary>Vocês consertam aparelhos?<i></i></summary><div class="ans"><p>Sim. Traga o aparelho na loja: o técnico avalia, descobre o defeito e passa o preço. O conserto só é feito depois que você aprovar.</p></div></details>
-      <details><summary>Como sei se vocês têm o que eu preciso?<i></i></summary><div class="ans"><p>Ligue para a loja ou chame no WhatsApp. Se precisar de várias coisas, monte a sua lista aqui no site e envie de uma vez.</p></div></details>
-      <details><summary>Meu carregador quebrou. Qualquer um serve?<i></i></summary><div class="ans"><p>Nem sempre — cada aparelho precisa do carregador certo, senão pode estragar. Use o teste <a href="#guia" data-open-tab="tab-carr">“O carregador serve?”</a> aqui no site: é só copiar os números da etiqueta. Na dúvida, traga o antigo na loja.</p></div></details>
-      <details><summary>Vocês entregam?<i></i></summary><div class="ans"><p>Sim! Entregamos em toda a Grande Goiânia e em Aparecida de Goiânia. Se preferir, compre na loja ou retire na porta. Chame no WhatsApp para combinar.</p></div></details>
-      <details><summary>Sou técnico, instalador ou empresa. Tem atendimento pra mim?<i></i></summary><div class="ans"><p>Tem. Atendemos quem compra para trabalhar e em maior quantidade. Monte sua lista aqui no site e envie pelo WhatsApp que a gente faz o orçamento.</p></div></details>
-      <details><summary>Qual o horário da loja?<i></i></summary><div class="ans"><p>De segunda a sexta, das 8h às 18h, na Rua 68, nº 283 — Setor Central, Goiânia.</p></div></details>
+      <details open><summary>Não sei o nome da peça. E agora?<i></i></summary><div class="ans"><p>Sem problema — acontece com quase todo mundo. Traga a peça velha na loja ou mande uma foto pelo WhatsApp que a gente identifica.</p></div></details>
+      <details><summary>Vocês consertam aparelhos?<i></i></summary><div class="ans"><p>Sim. O técnico avalia, descobre o defeito e passa o preço. O conserto só é feito depois que você aprovar.</p></div></details>
+      <details><summary>Vocês entregam?<i></i></summary><div class="ans"><p>Sim! Entregamos em toda a Grande Goiânia e em Aparecida de Goiânia. Se preferir, compre na loja ou retire na porta.</p></div></details>
+      <details><summary>Sou técnico, instalador ou empresa. Tem atendimento pra mim?<i></i></summary><div class="ans"><p>Tem. Atendemos quem compra para trabalhar e em maior quantidade — mande sua lista pelo WhatsApp que a gente faz o orçamento.</p></div></details>
     </div>
   </div>
 </section>
@@ -1030,49 +635,16 @@ footer .wrap{position:relative}
 <section class="sec" id="visite" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker mono"><b>08</b> Como chegar</span>
+      <span class="kicker mono"><b>05</b> Como chegar</span>
       <h2>Na rua da <i>eletrônica.</i></h2>
       <p>A Rua 68 é a rua da eletrônica de Goiânia. A Premier fica no número 283, no Setor Central.</p>
     </div>
 
     <div class="visit">
-      <div class="map rv">
-        <svg viewBox="0 0 700 480" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mapa ilustrativo da região da Rua 68, Setor Central de Goiânia">
-          <rect width="700" height="480" fill="#dcd6c6"/>
-          <g transform="rotate(-17 350 240)">
-            <g class="blkm">
-              <rect x="-100" y="-100" width="250" height="150" rx="6"/><rect x="180" y="-100" width="200" height="150" rx="6"/><rect x="410" y="-100" width="400" height="150" rx="6"/>
-              <rect x="-100" y="80" width="250" height="170" rx="6"/><rect x="180" y="80" width="200" height="170" rx="6"/><rect x="410" y="80" width="400" height="170" rx="6"/>
-              <rect x="-100" y="280" width="250" height="160" rx="6"/><rect x="180" y="280" width="200" height="160" rx="6"/><rect x="410" y="280" width="400" height="160" rx="6"/>
-              <rect x="-100" y="470" width="250" height="200" rx="6"/><rect x="180" y="470" width="200" height="200" rx="6"/><rect x="410" y="470" width="400" height="200" rx="6"/>
-            </g>
-            <path class="st" stroke-width="14" d="M-200 65 H900 M-200 265 H900"/>
-            <path class="st" stroke-width="20" d="M-200 455 H900"/>
-            <path class="st" stroke-width="14" d="M165 -200 V800"/>
-            <path class="st" stroke="#fbfaf6" stroke-width="22" d="M395 -200 V800"/>
-            <path d="M395 -200 V800" stroke="#ff8a0f" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round" fill="none"/>
-            <text class="sn" x="40" y="61">R. 75</text>
-            <text class="sn" x="40" y="261">R. 55</text>
-            <text class="sn" x="40" y="451">Av. Paranaíba</text>
-            <text class="sn" x="170" y="-40" transform="rotate(90 170 -40)">R. 70</text>
-            <text class="sn hl" x="402" y="-30" transform="rotate(90 402 -30)">RUA 68 · RUA DA ELETRÔNICA</text>
-            <rect x="560" y="-20" width="90" height="40" rx="8" fill="#c7cfc1"/><text class="lm" x="570" y="5">IFG Goiânia</text>
-            <rect x="560" y="340" width="120" height="40" rx="8" fill="#e2c9bd"/><text class="lm" x="570" y="365">Hosp. Acidentados</text>
-            <g transform="translate(395 188)"><circle class="pulse" r="18"/><circle r="11" fill="#0a3cff" stroke="#fff" stroke-width="4"/></g>
-            <g transform="translate(418 146)">
-              <rect width="206" height="62" rx="12" fill="#0b0b0d"/>
-              <image href="img/logo-premier.png" x="10" y="8" width="128" height="46"/>
-              <text x="146" y="36" fill="#ff8a0f" style="font:600 11px 'IBM Plex Mono', monospace">Nº 283</text>
-            </g>
-          </g>
-          <g transform="translate(652 46)"><circle r="22" fill="#f4f1ea" stroke="rgba(0,0,0,.15)"/><path d="M0 -14 L6 4 L0 0 L-6 4 Z" fill="#0b0b0d"/><text y="16" text-anchor="middle" style="font:600 9px 'IBM Plex Mono', monospace" fill="#0b0b0d">N</text></g>
-        </svg>
-        <div class="map-tag"><span class="mono">Mapa ilustrativo</span></div>
-      </div>
+      <figure class="facade rv"><img src="img/fachada.jpg" alt="Fachada da Eletrônica Premier na Rua 68, com letreiro preto e laranja" width="739" height="316" loading="lazy"><figcaption>Procure esta fachada · Rua 68, nº 283</figcaption></figure>
 
       <div class="visit-info rv">
         <p class="addr">Rua 68, nº 283<span>Quadra 125, Lote 31 · Setor Central<br>Goiânia – GO · CEP 74055-100</span></p>
-        <figure class="facade"><img src="img/fachada.jpg" alt="Fachada da Eletrônica Premier na Rua 68, com letreiro preto e laranja" width="739" height="316" loading="lazy"><figcaption>Procure esta fachada</figcaption></figure>
         <dl class="kv" id="hours">
           <div><dt>Agora</dt><dd class="now" id="nowTxt"><i></i><span>—</span></dd></div>
           <div><dt>Segunda a sexta</dt><dd data-d="1-5">08h – 18h</dd></div>
@@ -1080,11 +652,6 @@ footer .wrap{position:relative}
           <div><dt>Telefone fixo</dt><dd><a href="tel:+556239450068">(62) 3945-0068</a></dd></div>
           <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/eletronicapremier" target="_blank" rel="noopener">@eletronicapremier</a></dd></div>
         </dl>
-        <div class="perks">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l1.5-5h13L20 9M4 9h16v11H4zM9 20v-6h6v6"/></svg>Compra na loja</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8"/></svg>Retirada na porta</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7M7.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM17.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>Entrega na Grande Goiânia e Aparecida</span>
-        </div>
         <div class="ctas">
           <a class="btn btn-ink" href="https://maps.app.goo.gl/zpdtS55PyyUHASVR7" target="_blank" rel="noopener">Abrir no Google Maps</a>
           <a class="btn btn-ghost" href="https://waze.com/ul?ll=-16.6676938,-49.2584151&amp;navigate=yes" target="_blank" rel="noopener">Ir com Waze</a>
@@ -1110,13 +677,12 @@ footer .wrap{position:relative}
       <div><h5>Loja</h5><p>Rua 68, 283 · Qd 125 Lt 31<br>Setor Central · Goiânia–GO<br>74055-100</p></div>
       <div><h5>Horário</h5><p>Segunda a sexta<br>08h às 18h<br>Entrega na Grande Goiânia e Aparecida</p></div>
       <div><h5>Contato</h5><a data-wa="Olá, Eletrônica Premier! Vim pelo site." href="#" target="_blank" rel="noopener">WhatsApp (62) 98488-4237</a><br><a href="tel:+556239450068">Fixo (62) 3945-0068</a><br><a href="https://www.instagram.com/eletronicapremier" target="_blank" rel="noopener">Instagram @eletronicapremier</a></div>
-      <div><h5>Navegar</h5><a href="#produtos">Produtos</a><br><a href="#guia">Guia rápido</a><br><a href="#conserto">Conserto</a><br><a href="#duvidas">Dúvidas</a></div>
+      <div><h5>Navegar</h5><a href="#produtos">Produtos</a><br><a href="#avaliacoes">Avaliações</a><br><a href="#conserto">Conserto</a><br><a href="#duvidas">Dúvidas</a></div>
     </div>
     <div class="legal"><span>© <span id="yr"></span> ELETRÔNICA PREMIER LTDA · CNPJ 59.790.633/0001-93</span><span>COMPONENTES · SUPORTES · ACESSÓRIOS · FERRAMENTAS · REDES</span></div>
   </div>
 </footer>
 
-<a class="fab" id="fab" href="#lista">Minha lista <b id="fabN">0</b></a>
 <div class="toast" id="toast" role="status"></div>
 
 <script>
@@ -1273,285 +839,13 @@ wb.addEventListener('click', e => {
 wb.addEventListener('input', e => { if (e.target.id === 'wizMore') wiz.more = e.target.value; });
 wizRender();
 
-/* ════════════ LISTA ════════════ */
-let items = store.get('premier-list', []);
-let ticketNo = store.get('premier-ticket', Math.floor(1000 + Math.random()*8999));
-store.set('premier-ticket', ticketNo);
-$('#ticketNo').textContent = String(ticketNo).padStart(4,'0');
-$('#ticketDate').textContent = new Date().toLocaleDateString('pt-BR');
-function renderList(){
-  $('#items').innerHTML = !items.length
-    ? `<li class="empty">Sua lista está vazia.<br>Escreva acima o que você precisa.</li>`
-    : items.map((it, i) => `
-      <li>
-        <span class="n">${String(i+1).padStart(2,'0')}</span>
-        <span>${esc(it.name)}</span>
-        <span class="q"><button type="button" data-q="-1" data-i="${i}" aria-label="Diminuir">−</button><b>${it.qty}</b><button type="button" data-q="1" data-i="${i}" aria-label="Aumentar">+</button></span>
-        <button class="x" type="button" data-x="${i}" aria-label="Remover ${esc(it.name)}">×</button>
-      </li>`).join('');
-  $('#fabN').textContent = items.length;
-  $('#fab').classList.toggle('show', items.length > 0);
-  store.set('premier-list', items);
-}
-function addItem(name, qty = 1){
-  name = name.trim(); if (!name) return;
-  const ex = items.find(it => it.name.toLowerCase() === name.toLowerCase());
-  if (ex) ex.qty += qty; else items.push({name, qty});
-  renderList();
-  const fab = $('#fab'); fab.classList.remove('bump'); void fab.offsetWidth; fab.classList.add('bump');
-  toast(`Adicionado à lista: ${name}`);
-}
-$('#items').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
-  if (b.dataset.x !== undefined) items.splice(+b.dataset.x, 1);
-  else { const it = items[+b.dataset.i]; it.qty = Math.max(1, it.qty + +b.dataset.q); }
-  renderList();
-});
-$('#addForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const n = $('#addName'), q = $('#addQty');
-  if (!n.value.trim()){ n.focus(); return; }
-  addItem(n.value, Math.max(1, parseInt(q.value) || 1));
-  n.value = ''; q.value = 1; n.focus();
-});
-$('#sendList').addEventListener('click', () => {
-  if (!items.length){ toast('Escreva pelo menos um item na lista'); $('#addName').focus(); return; }
-  const ship = $('input[name=ship]:checked').value;
-  const lines = items.map((it, i) => `${i+1}. ${it.qty}x ${it.name}`).join('\n');
-  openWa(`Olá, Eletrônica Premier! Vim pelo site e queria um orçamento desta lista (nº ${String(ticketNo).padStart(4,'0')}):\n\n${lines}\n\nPrefiro ${ship}.`);
-});
-renderList();
-
 /* ════════════ FAIXA ════════════ */
 const PN = ['Ferro de solda Hikari','Cabo de rede CAT.6','Álcool isopropílico','Suporte para TV','Carregador de notebook','Controle remoto','Cabo HDMI','Fonte para câmera','Fita de LED','Antena digital','Pilhas e baterias','Ferro de solda','Caixa de som','Cabo de som','Carregador de celular','Extensão e adaptador','Fusível','Cooler','Câmera de segurança','Conserto de aparelhos'];
 $('#ticker').innerHTML = [...PN, ...PN].map(p => `<span>${p}</span>`).join('');
 
-/* ════════════ GAVETAS ════════════ */
-const gi = {
-  chip:ic.part, plug:ic.plug, cam:ic.cam,
-  spk:'<path d="M4 9h4l5-4v14l-5-4H4zM17 8a5 5 0 0 1 0 8M19.5 5.5a8.5 8.5 0 0 1 0 13"/>',
-  pc:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
-  iron:'<path d="M3 21l6-6M9 15l3 3 8-8-3-3zM14 7l3 3"/>',
-  wire:'<path d="M3 17c4 0 4-10 9-10s5 10 9 10"/><circle cx="3" cy="17" r="1.5"/><circle cx="21" cy="17" r="1.5"/>',
-  bulb:'<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/>',
-  car:'<path d="M5 16h14v-4l-2-5H7l-2 5zM3 16h18M7 19v-3M17 19v-3"/>',
-  ant:'<rect x="3" y="9" width="18" height="12" rx="2"/><path d="M12 9L7 3M12 9l5-6M8 21v1M16 21v1"/>',
-  mount:'<rect x="6" y="5" width="15" height="11" rx="1.5"/><path d="M2 8v6M2 11h4M13 16v3M10 19h6"/>',
-  net:'<rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M5 16v-4h14v4"/>',
-  fix:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/>'
-};
-const DRAWERS = [
-  {lbl:'Carregadores', g:'plug', t:'Carregadores e fontes', d:'O “carregador” que liga o aparelho na tomada.', f:'notebook, câmeras, fita de LED, som, roteador', items:['Carregador de notebook','Fonte para câmera de segurança','Fonte para fita de LED','Fonte 12V','Carregador de celular','Adaptadores de tomada']},
-  {lbl:'Cabos', g:'spk', t:'Som, imagem e cabos', d:'Para ligar a TV, o som e o celular.', f:'TV, caixa de som, celular, videogame', items:['Cabo HDMI','Cabo de som (P2)','Cabo RCA','Caixas e alto-falantes','Controles remotos','Adaptadores e conectores']},
-  {lbl:'Câmeras', g:'cam', t:'Câmeras de segurança', d:'Para montar ou arrumar o sistema de câmeras.', f:'casa, comércio, condomínio', items:['Câmeras','Gravador (DVR)','Fontes para câmera','Cabos para câmera','Conectores']},
-  {lbl:'Informática', g:'pc', t:'Informática', d:'Acessórios para computador e notebook.', f:'computador, notebook, escritório', items:['Mouse e teclado','Pendrive e cartão de memória','Cabos USB','Cooler e pasta térmica','Fonte para computador']},
-  {lbl:'Iluminação', g:'bulb', t:'Iluminação LED', d:'Luz de LED para casa, loja e decoração.', f:'decoração, loja, sanca, armário', items:['Fita de LED','Lâmpada LED','Fonte para LED','Controle para fita de LED']},
-  {lbl:'Antenas', g:'ant', t:'Antenas de TV', d:'Para a TV pegar os canais sem chiado.', f:'TV aberta, sinal digital', items:['Antena digital','Cabo de antena','Divisor de sinal','Conectores']},
-  {lbl:'Elétrica', g:'wire', t:'Material elétrico', d:'Pequenos reparos elétricos em casa.', f:'tomadas, extensões, instalações', items:['Fios e cabos','Tomadas e interruptores','Fusíveis','Fita isolante','Conectores e emendas']},
-  {lbl:'Ferramentas', g:'iron', t:'Ferramentas', d:'Para quem gosta de fazer o próprio reparo.', f:'técnicos e curiosos', items:['Ferro de solda','Estanho (solda)','Multímetro (medidor)','Alicates','Chaves de fenda']},
-  {lbl:'Suportes TV', g:'mount', t:'Suportes para TV', d:'Para prender a TV na parede com segurança.', f:'sala, quarto, comércio, TVs de todos os tamanhos', items:['Suporte fixo','Suporte inclinável','Suporte articulado','Suporte para TV box e receptor']},
-  {lbl:'Peças', g:'chip', t:'Peças eletrônicas', d:'As pecinhas que ficam dentro dos aparelhos.', f:'técnicos, estudantes e consertos', items:['Resistores','Capacitores','Transistores','Circuitos integrados (chips)','Diodos','Reguladores']},
-  {lbl:'Redes', g:'net', t:'Redes e internet', d:'Para levar internet estável por cabo à casa ou à empresa.', f:'escritório, câmeras, smart TV, videogame', items:['Cabo de rede CAT.6','Conectores RJ45','Alicate de crimpar','Roteadores e acessórios']},
-  {lbl:'Conserto', g:'fix', t:'Conserto de aparelhos', d:'Não achou a peça? Traga o aparelho que a gente conserta.', f:'som, fontes, notebook, eletrônicos', items:['Som e caixas de som','Fontes e carregadores','Notebook e computador','Placas eletrônicas'], repair:true}
-];
-const drawersEl = $('#drawers'), panel = $('#panel');
-drawersEl.innerHTML = DRAWERS.map((d, i) => `
-  <button class="drawer" type="button" aria-pressed="${i===0}" data-i="${i}" aria-label="Gaveta: ${d.t}">
-    <span class="face">
-      <svg class="g" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${gi[d.g]}</svg>
-      <span class="lbl">${d.lbl}</span>
-      <span class="pull"></span>
-    </span>
-  </button>`).join('');
-function openDrawer(i){
-  const d = DRAWERS[i];
-  $$('.drawer', drawersEl).forEach(b => b.setAttribute('aria-pressed', +b.dataset.i === i));
-  panel.innerHTML = `<div class="anim">
-    <span class="mono">Gaveta ${String(i+1).padStart(2,'0')} de 12</span>
-    <h3>${d.t}</h3>
-    <p>${d.d}</p>
-    <p class="for"><b>Serve para:</b> ${d.f}.</p>
-    <ul>${d.items.map(it => `<li><span>${it}</span>${d.repair ? '' : `<button type="button" data-add="${esc(it)}">+ Adicionar</button>`}</li>`).join('')}</ul>
-    <a class="btn btn-ink" href="${d.repair ? '#conserto' : '#lista'}">${d.repair ? 'Como funciona o conserto' : 'Ver minha lista'}</a>
-  </div>`;
-}
-drawersEl.addEventListener('click', e => { const b = e.target.closest('.drawer'); if (b) openDrawer(+b.dataset.i); });
-panel.addEventListener('click', e => { const b = e.target.closest('[data-add]'); if (b) addItem(b.dataset.add); });
-openDrawer(0);
-
-/* ════════════ GUIA RÁPIDO ════════════ */
-/* abas */
-function abrirAba(id){
-  $$('#guia [role=tab]').forEach(t => {
-    const on = t.id === id;
-    t.setAttribute('aria-selected', String(on));
-    $('#' + t.getAttribute('aria-controls')).hidden = !on;
-  });
-}
-$$('#guia [role=tab]').forEach(t => t.addEventListener('click', () => abrirAba(t.id)));
-// links "O carregador serve?" em outras partes do site abrem a aba certa
-$$('[data-open-tab]').forEach(a => a.addEventListener('click', () => abrirAba(a.dataset.openTab)));
-
-/* Qual é o meu cabo? — desenhos em viewBox 0 0 120 80 */
-const CABOS = [
-  {n:'HDMI', aka:'Cabo da TV', tags:['tv','pc'], add:'Cabo HDMI',
-   use:'Liga TV box, videogame, notebook e decodificador na TV. Leva imagem e som juntos.',
-   svg:'<path class="s" d="M16 22h88v20L92 56H28L16 42z"/><rect class="f" x="28" y="30" width="64" height="10" rx="1.5"/>'},
-  {n:'USB-C', aka:'Carregador de celular novo', tags:['celular','pc'], add:'Cabo USB-C',
-   use:'Celulares mais novos, notebooks, fones e caixinhas de som. Encaixa dos dois lados.',
-   svg:'<rect class="s" x="24" y="26" width="72" height="28" rx="14"/><rect class="f" x="38" y="37" width="44" height="6" rx="3"/>'},
-  {n:'Micro USB', aka:'Carregador "V8"', tags:['celular','som'], add:'Cabo Micro USB',
-   use:'Celulares mais antigos, caixinhas de som, controles e power banks. Só encaixa de um lado.',
-   svg:'<path class="s" d="M28 30h64v9l-8 11H36l-8-11z"/><rect class="f" x="38" y="35" width="44" height="4" rx="1"/>'},
-  {n:'USB comum', aka:'USB-A', tags:['celular','pc'], add:'Cabo USB',
-   use:'A ponta “larga” que vai no carregador de tomada, no computador, na TV e no carro.',
-   svg:'<rect class="s" x="20" y="22" width="80" height="36" rx="3"/><rect class="f" x="28" y="29" width="64" height="11" rx="1"/><rect class="of" x="36" y="46" width="12" height="5" rx="1"/><rect class="of" x="72" y="46" width="12" height="5" rx="1"/>'},
-  {n:'Lightning', aka:'Cabo de iPhone', tags:['celular'], add:'Cabo Lightning (iPhone)',
-   use:'iPhones até o 14, iPads antigos e AirPods. Ponta fininha e chata.',
-   svg:'<rect class="f" x="66" y="25" width="40" height="30" rx="8"/><rect class="s" x="16" y="33" width="52" height="14" rx="7"/><path class="o" d="M28 40h3M37 40h3M46 40h3M55 40h3"/>'},
-  {n:'P2', aka:'Cabo de fone / auxiliar', tags:['som','celular'], add:'Cabo P2 (auxiliar)',
-   use:'Fone de ouvido, caixa de som, som do carro e microfone. Ponta redondinha de metal.',
-   svg:'<rect class="f" x="72" y="27" width="36" height="26" rx="6"/><rect class="s" x="18" y="35" width="54" height="10" rx="5"/><path class="o" d="M36 35v10M50 35v10"/>'},
-  {n:'RCA', aka:'Cabo "vermelho, branco e amarelo"', tags:['som','tv'], add:'Cabo RCA',
-   use:'Som e vídeo de aparelhos mais antigos: DVD, aparelho de som, mesa de som e TVs antigas.',
-   svg:'<circle cx="32" cy="40" r="14" fill="#e53935"/><circle cx="32" cy="40" r="4.5" fill="#0b0b0d"/><circle cx="60" cy="40" r="14" fill="#f1efe9"/><circle cx="60" cy="40" r="4.5" fill="#0b0b0d"/><circle cx="88" cy="40" r="14" fill="#fbc02d"/><circle cx="88" cy="40" r="4.5" fill="#0b0b0d"/>'},
-  {n:'Coaxial', aka:'Cabo de antena', tags:['tv'], add:'Cabo coaxial (antena)',
-   use:'Liga a antena digital ou a TV a cabo na televisão. Tem rosca e um pininho no meio.',
-   svg:'<polygon class="s" points="86,40 73,17 47,17 34,40 47,63 73,63"/><circle class="s" cx="60" cy="40" r="13"/><circle class="of" cx="60" cy="40" r="3"/>'},
-  {n:'Plugue P4', aka:'Plugue de fonte', tags:['camera','internet','som'], add:'Plugue P4 / fonte',
-   use:'A ponta redonda e oca das fontes de câmera, roteador, fita de LED e aparelhos de som.',
-   svg:'<rect class="f" x="66" y="26" width="42" height="28" rx="6"/><rect class="s" x="18" y="31" width="48" height="18" rx="3"/><ellipse class="o" cx="18" cy="40" rx="3" ry="6"/>'},
-  {n:'Cabo de rede', aka:'RJ45 · internet', tags:['internet','tv','pc'], add:'Cabo de rede (internet)',
-   use:'Leva a internet do roteador para o computador, a smart TV ou o videogame, sem falhar.',
-   svg:'<rect class="s" x="36" y="16" width="48" height="40" rx="4"/><rect class="s" x="50" y="56" width="20" height="9" rx="2"/><path class="o" d="M43 24v12M48 24v12M53 24v12M58 24v12M63 24v12M68 24v12M73 24v12M78 24v12"/>'}
-];
-const FILTROS = [['todos','Todos'],['tv','TV'],['celular','Celular'],['som','Som'],['internet','Internet'],['camera','Câmeras'],['pc','Computador']];
-$('#cnFilter').innerHTML = FILTROS.map(([k,l],i) => `<button type="button" data-f="${k}" aria-pressed="${i===0}">${l}</button>`).join('');
-$('#cnGrid').innerHTML = CABOS.map((c,i) => `
-  <article class="cn" data-tags="${c.tags.join(' ')}" style="animation-delay:${i*40}ms">
-    <div class="art"><svg viewBox="0 0 120 80" aria-hidden="true">${c.svg}</svg></div>
-    <h4>${c.n}</h4>
-    <div class="aka">${c.aka}</div>
-    <p>${c.use}</p>
-    <button type="button" data-add="${esc(c.add)}">+ Adicionar à lista</button>
-  </article>`).join('');
-$('#cnFilter').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
-  $$('#cnFilter button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-  const f = b.dataset.f;
-  $$('#cnGrid .cn').forEach(c => {
-    const show = f === 'todos' || c.dataset.tags.split(' ').includes(f);
-    c.hidden = !show;
-    if (show){ c.style.animation = 'none'; void c.offsetWidth; c.style.animation = ''; }
-  });
-});
-$('#cnGrid').addEventListener('click', e => { const b = e.target.closest('[data-add]'); if (b) addItem(b.dataset.add); });
-
-/* O carregador serve? */
-const lerNum = id => parseFloat(($('#' + id).value || '').replace(',', '.'));
-const br = n => n.toLocaleString('pt-BR', {maximumFractionDigits:2});
-function testarCarregador(){
-  const ov = lerNum('ovV'), oa = lerNum('ovA'), nv = lerNum('nvV'), na = lerNum('nvA');
-  const plugOk = $('input[name=plug]:checked').value === 'sim';
-  let cls, ico, tit, txt;
-  if (![ov, oa, nv, na].every(x => x > 0)){
-    cls = 'wait'; ico = '?'; tit = 'Preencha os 4 números';
-    txt = 'Eles estão na linha OUTPUT da etiqueta, perto das letras V e A.';
-  } else if (Math.abs(nv - ov) / ov > 0.05){
-    cls = 'bad'; ico = '✕'; tit = 'Não serve';
-    txt = `A voltagem é diferente (${br(ov)}V × ${br(nv)}V). Com voltagem errada o aparelho pode estragar.`;
-  } else if (na < oa * 0.98){
-    cls = 'warn'; ico = '!'; tit = 'Não é o ideal';
-    txt = `A corrente do novo é menor (${br(na)}A, o antigo é ${br(oa)}A). Ele pode esquentar e não dar conta de carregar.`;
-  } else if (!plugOk){
-    cls = 'bad'; ico = '✕'; tit = 'O plugue precisa ser igual';
-    txt = 'Os números batem, mas a ponta tem que encaixar firme, no mesmo formato. A loja tem adaptadores.';
-  } else {
-    cls = 'ok'; ico = '✓'; tit = 'Serve!';
-    txt = na > oa * 1.02
-      ? `Voltagem igual e corrente maior (${br(na)}A). Tudo certo: o aparelho só usa o que precisa.`
-      : 'Voltagem e corrente iguais e o plugue encaixa. Pode usar sem medo.';
-  }
-  const v = $('#verdict');
-  const mudou = !v.classList.contains(cls);
-  v.className = 'verdict ' + cls + (mudou ? ' pop' : '');
-  v.innerHTML = `<span class="vi">${ico}</span><div><b>${tit}</b><span>${txt}</span></div>`;
-}
-['ovV','ovA','nvV','nvA'].forEach(id => $('#' + id).addEventListener('input', testarCarregador));
-$$('input[name=plug]').forEach(r => r.addEventListener('change', testarCarregador));
-$('#ckAdd').addEventListener('click', () => {
-  const ov = lerNum('ovV'), oa = lerNum('ovA');
-  if (!(ov > 0 && oa > 0)){ toast('Preencha os números do carregador antigo'); $('#ovV').focus(); return; }
-  addItem(`Carregador ${br(ov)}V ${br(oa)}A (igual ao meu antigo)`);
-});
-testarCarregador();
-
-/* ════════════ MAIS PROCURADOS ════════════ */
-/* desenhos em viewBox 0 0 160 100 */
-const DESTAQUES = [
-  {brand:'Hikari Plus', n:'Ferro de solda', use:'Para soldar fios e consertar placas. Esquenta rápido e tem dupla isolação.',
-   vars:[['30W','Consertos pequenos e placas delicadas'],['40W','Uso geral — o mais versátil'],['60W','Fios grossos e peças maiores']], def:1, add:'Ferro de solda Hikari Plus',
-   svg:'<g transform="rotate(-16 80 52)"><path d="M10 52h26" stroke="#cfd3d8" stroke-width="3" stroke-linecap="round"/><rect x="34" y="47" width="48" height="10" rx="3" fill="#d7dadf"/><rect x="80" y="42" width="52" height="20" rx="10" fill="#f5c518"/><path d="M92 42v20M100 42v20" stroke="#d9a90c" stroke-width="2"/><rect x="130" y="47" width="14" height="10" rx="2" fill="#2a2a2e"/></g><path d="M146 54c10 6 6 22-8 26" stroke="#2a2a2e" stroke-width="4" fill="none" stroke-linecap="round"/>'},
-  {brand:'Cobix', n:'Estanho para solda', use:'O “fio” que derrete com o ferro de solda e une as peças.',
-   vars:[['60x40 · 1,0 mm','o mais usado em eletrônica']], def:0, add:'Estanho para solda Cobix',
-   svg:'<rect x="46" y="18" width="12" height="66" rx="4" fill="#1f2024"/><rect x="102" y="18" width="12" height="66" rx="4" fill="#1f2024"/><rect x="58" y="26" width="44" height="50" fill="#c9ccd2"/><path d="M58 34h44M58 42h44M58 50h44M58 58h44M58 66h44" stroke="#a5a9b0" stroke-width="2"/><rect x="62" y="40" width="36" height="20" rx="2" fill="#0a3cff"/><text x="80" y="54" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="10" fill="#fff">60x40</text><path d="M102 70c18 4 26 10 38 4" stroke="#c9ccd2" stroke-width="3" fill="none" stroke-linecap="round"/>'},
-  {brand:'Implastec', n:'Álcool isopropílico 99,8%', use:'Limpa placas, conectores e telas sem deixar mancha. Não conduz eletricidade e seca rápido.',
-   vars:[['100 ml',''],['250 ml',''],['500 ml',''],['1 L',''],['5 L','Galão para uso profissional']], def:2, add:'Álcool isopropílico 99,8% Implastec',
-   svg:'<path d="M74 6l6-2 6 2-3 14h-6z" fill="#0a3cff"/><rect x="70" y="20" width="20" height="10" rx="2" fill="#0a3cff"/><path d="M62 30h36l4 8v52a6 6 0 0 1-6 6H64a6 6 0 0 1-6-6V38z" fill="#eef2f7"/><rect x="62" y="50" width="36" height="28" rx="2" fill="#fff" stroke="#0a3cff" stroke-width="2"/><text x="80" y="62" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="900" font-size="9" fill="#0a3cff">99,8%</text><path d="M66 70h28" stroke="#0a3cff" stroke-width="2"/>'},
-  {brand:'Soho Plus', n:'Cabo de rede CAT.6', use:'Internet estável por cabo, para escritório, câmeras e TV. 100% cobre e homologado Anatel.',
-   vars:[['CAT.6','Para redes de até 1 Gbps (gigabit)']], def:0, add:'Cabo de rede CAT.6 Soho Plus',
-   svg:'<path d="M40 26l50-10 30 10v58l-30 10-50-10z" fill="#f5c518"/><path d="M90 16v78" stroke="#d9a90c" stroke-width="2"/><path d="M90 16l30 10v58l-30 10z" fill="#e2b311"/><text x="64" y="58" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="900" font-size="14" fill="#111">CAT.6</text><rect x="48" y="34" width="32" height="8" rx="1" fill="#111"/><path d="M120 60c14 0 16 14 30 14" stroke="#3b82f6" stroke-width="4" fill="none" stroke-linecap="round"/>'},
-  {brand:'Fio para projetos', n:'Cobre estanhado', use:'Fio de cobre com proteção de estanho: conduz bem e facilita a solda. Rolo de 100 m.',
-   vars:[['0,14 mm','Bem fino, para placas e ligações delicadas'],['0,32 mm',''],['0,75 mm',''],['1 mm','Mais grosso, aguenta mais corrente']], def:2, add:'Cobre estanhado (rolo 100 m)',
-   svg:'<rect x="42" y="16" width="14" height="70" rx="5" fill="#f4f4f6"/><rect x="104" y="16" width="14" height="70" rx="5" fill="#f4f4f6"/><rect x="56" y="24" width="48" height="54" fill="#b9bcc3"/><path d="M56 30h48M56 36h48M56 42h48M56 48h48M56 54h48M56 60h48M56 66h48M56 72h48" stroke="#9a9ea6" stroke-width="2"/><rect x="62" y="42" width="36" height="16" rx="2" fill="#fff"/><text x="80" y="53.5" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="8" fill="#111">100m</text>'},
-  {brand:'Fio para projetos', n:'Cabo flex colorido', use:'Fio flexível em várias cores, para montar chicotes e identificar cada ligação.',
-   color:true, vars:[['Preto','#1b1b1b'],['Vermelho','#d32f2f'],['Azul','#1e4fd8'],['Verde','#1f9d55'],['Amarelo','#f5c518'],['Branco','#f4f4f4'],['Laranja','#ff8a0f'],['Cinza','#8a8a8a'],['Roxo','#7b3fb8'],['Rosa','#ec4899'],['Marrom','#7a4a28']], def:1, add:'Cabo flex',
-   svg:'<g id="flexrolls"><circle cx="54" cy="40" r="20" fill="#1b1b1b"/><circle cx="54" cy="40" r="7" fill="#0f1015"/><circle cx="106" cy="40" r="20" fill="#1e4fd8"/><circle cx="106" cy="40" r="7" fill="#0f1015"/><circle class="flex-main" cx="80" cy="66" r="22" fill="#d32f2f"/><circle cx="80" cy="66" r="8" fill="#0f1015"/></g>'},
-  {brand:'Instalação', n:'Suporte para TV', use:'Para prender a TV na parede com segurança. Fixo, inclinável ou articulado — a gente indica o certo.',
-   vars:[['Até 32"',''],['32" a 55"',''],['Acima de 55"','']], def:1, add:'Suporte para TV',
-   svg:'<rect x="14" y="26" width="10" height="48" rx="2" fill="#6b6c72"/><path d="M24 40h18l10 10-10 10H24" fill="none" stroke="#9a9ca3" stroke-width="5" stroke-linejoin="round"/><rect x="52" y="14" width="96" height="62" rx="4" fill="#1b1c22" stroke="#f1efe9" stroke-width="3"/><path d="M60 22l30 22" stroke="rgba(255,255,255,.12)" stroke-width="8"/><rect x="92" y="78" width="16" height="4" rx="2" fill="#f1efe9"/>'},
-  {brand:'Ferramenta', n:'Multímetro', use:'Mede tomada, pilha, bateria e fios. Descobre se tem energia antes de mexer.',
-   vars:[['Digital','Fácil de ler, mostra o número na tela']], def:0, add:'Multímetro digital',
-   svg:'<rect x="54" y="8" width="52" height="84" rx="10" fill="#f5c518"/><rect x="60" y="14" width="40" height="72" rx="6" fill="#1f2024"/><rect x="66" y="20" width="28" height="16" rx="2" fill="#cfe3c8"/><text x="80" y="32" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="9" fill="#1f2024">220</text><circle cx="80" cy="56" r="11" fill="#2f3036" stroke="#9a9ca3" stroke-width="2"/><path d="M80 56l6-6" stroke="#f5c518" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="78" r="3" fill="#d32f2f"/><circle cx="90" cy="78" r="3" fill="#888"/><path d="M70 81c-8 10-26 6-36 12" stroke="#d32f2f" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M90 81c8 10 26 6 36 12" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round"/>'}
-];
-const dstSel = DESTAQUES.map(d => d.def);
-function dstHint(d, i){
-  const [lbl, extra] = d.vars[i];
-  if (d.color) return `Cor: <b>${lbl}</b>`;
-  return `<b>${lbl}</b>${extra ? ' — ' + extra : ''}`;
-}
-$('#dstGrid').innerHTML = DESTAQUES.map((d, k) => `
-  <article class="dst rv" data-k="${k}">
-    <div class="art"><svg viewBox="0 0 160 100" aria-hidden="true">${d.svg}</svg></div>
-    <span class="brand-tag">${d.brand}</span>
-    <h4>${d.n}</h4>
-    <p>${d.use}</p>
-    ${d.vars.length > 1 ? `<div class="vars${d.color ? ' sw' : ''}" role="radiogroup" aria-label="Opções de ${esc(d.n)}">${d.vars.map(([l, x], i) =>
-      d.color ? `<button type="button" data-v="${i}" aria-pressed="${i === d.def}" title="${l}" aria-label="${l}" style="background:${x}"></button>`
-              : `<button type="button" data-v="${i}" aria-pressed="${i === d.def}">${l}</button>`).join('')}</div>` : ''}
-    <div class="hint">${dstHint(d, d.def)}</div>
-    <button class="add-b" type="button" data-addk="${k}">+ Adicionar à lista</button>
-  </article>`).join('');
-$('#dstGrid').addEventListener('click', e => {
-  const card = e.target.closest('.dst'); if (!card) return;
-  const k = +card.dataset.k, d = DESTAQUES[k];
-  const v = e.target.closest('[data-v]');
-  if (v){
-    dstSel[k] = +v.dataset.v;
-    $$('[data-v]', card).forEach(b => b.setAttribute('aria-pressed', String(b === v)));
-    $('.hint', card).innerHTML = dstHint(d, dstSel[k]);
-    if (d.color){ const m = $('.flex-main', card); if (m) m.setAttribute('fill', d.vars[dstSel[k]][1]); }
-    return;
-  }
-  if (e.target.closest('[data-addk]')){
-    const lbl = d.vars[dstSel[k]][0];
-    addItem(d.vars.length > 1 ? `${d.add} — ${d.color ? 'cor ' + lbl.toLowerCase() : lbl}` : d.add);
-  }
-});
-
 /* ════════════ ENTRADA + LINHA DE PROGRESSO ════════════ */
 const io = new IntersectionObserver(en => en.forEach(x => { if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }), {threshold:.15, rootMargin:'0px 0px -40px 0px'});
-$$('.rv, #flow, #themes').forEach(el => io.observe(el));
+$$('.rv').forEach(el => io.observe(el));
 setTimeout(() => $$('.rv:not(.in)').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); }), 1200);
 const trace = $('.trace');
 function onScroll(){
