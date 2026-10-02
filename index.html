@@ -474,10 +474,17 @@ footer .wrap{position:relative}
 @media (max-width:760px){
   /* topo */
   .hero .wrap>div:first-child{text-align:center}
+  /* título grande: cresce junto com a largura da tela (~90% dela) */
+  h1{font-size:min(calc((100vw - 32px) * .23), 7rem);line-height:.84}
+  h1 .b{margin-top:.1em}
+  .eyebrow{margin-bottom:22px}
+  .lead{margin-top:22px}
   .eyebrow{justify-content:center;gap:6px 14px}
   .lead{margin-left:auto;margin-right:auto}
   .hero-ctas{justify-content:center}
   .trust{justify-content:center;gap:10px 18px}
+  .trust li{display:block;text-align:center}
+  .trust li::before{display:inline-block;vertical-align:-4px;margin-right:8px}
 
   /* assistente: cabeçalho centralizado, opções continuam como cartões */
   .wiz-top{flex-direction:column;text-align:center;gap:10px}
