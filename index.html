@@ -41,7 +41,9 @@
   "name": "Eletrônica Premier",
   "legalName": "Eletrônica Premier Ltda",
   "taxID": "59.790.633/0001-93",
-  "telephone": "+55 62 3945-0068",
+  "telephone": ["+55 62 98488-4237", "+55 62 3945-0068"],
+  "sameAs": ["https://www.instagram.com/eletronicapremier"],
+  "areaServed": ["Goiânia", "Aparecida de Goiânia"],
   "url": "https://eletronicapremier.com.br",
   "logo": "https://eletronicapremier.com.br/img/logo-premier.png",
   "address": {
@@ -421,6 +423,59 @@ h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;co
 @media (max-width:980px){.carr{grid-template-columns:1fr}}
 @media (max-width:480px){.ck-row{grid-template-columns:1fr 1fr}.ck-l{grid-column:span 2}.brick::before,.brick::after{display:none}}
 
+/* ───────── mais procurados ───────── */
+.dst-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.dst{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.9,.3,1.2),border-color .3s}
+.dst:hover{transform:translateY(-4px);border-color:var(--orange)}
+.dst .art{height:138px;border-radius:14px;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,rgba(10,60,255,.35),transparent 70%),#0f1015;margin-bottom:14px;overflow:hidden}
+.dst .art svg{width:82%;max-width:200px;height:auto;transition:transform .45s cubic-bezier(.2,.9,.3,1.3)}
+.dst:hover .art svg{transform:scale(1.07) rotate(-2deg)}
+.dst .brand-tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:var(--orange-t)}
+.dst h4{margin:4px 0 6px;font-size:1.18rem;font-weight:800;line-height:1.12;font-variation-settings:"wdth" 88}
+.dst p{margin:0 0 12px;color:var(--tx-2);font-size:.92rem;line-height:1.45}
+.vars{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.vars button{border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:5px 11px;font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s}
+.vars button:hover{border-color:var(--orange)}
+.vars button[aria-pressed="true"]{background:var(--inv-bg);color:var(--inv-tx);border-color:var(--inv-bg)}
+.vars.sw button{width:26px;height:26px;padding:0;border-radius:50%;border:2px solid var(--line);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.vars.sw button[aria-pressed="true"]{border-color:var(--orange);box-shadow:0 0 0 2px var(--orange);transform:scale(1.08)}
+.dst .hint{font-size:.82rem;color:var(--tx-3);min-height:1.3em;margin-bottom:12px}
+.dst .hint b{color:var(--tx)}
+.dst .add-b{margin-top:auto;border:0;background:var(--blue);color:#fff;border-radius:12px;padding:11px 12px;font-weight:700;font-size:.88rem;cursor:pointer;transition:.2s}
+.dst .add-b:hover{background:var(--blue-d)}
+.brands{margin-top:clamp(36px,5vw,56px);padding-top:24px;border-top:1px solid var(--line);display:flex;align-items:center;gap:14px 28px;flex-wrap:wrap}
+.brands .mono{color:var(--tx-3)}
+.brands ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 30px;align-items:center}
+.brands li{color:var(--tx-2);opacity:.75;font-size:1.25rem;line-height:1;transition:opacity .2s,color .2s}
+.brands li:hover{opacity:1;color:var(--tx)}
+.brands .b1{font-weight:700;letter-spacing:-.02em}
+.brands .b2{font-weight:900;font-style:italic;font-variation-settings:"wdth" 110}
+.brands .b3{font-weight:600;letter-spacing:.04em}
+.brands .b4{font-weight:900;font-variation-settings:"wdth" 70;font-size:1.35rem}
+.brands .b5{font-weight:800;letter-spacing:.12em;font-size:1.05rem}
+.brands .b6{font-family:var(--mono);font-weight:600;font-size:1rem}
+.brands .b7{font-weight:900;font-size:1.45rem;font-variation-settings:"wdth" 125}
+@media (max-width:1100px){.dst-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){
+  .dst-grid{gap:10px}
+  .dst{padding:10px;border-radius:16px}
+  .dst .art{height:92px;margin-bottom:10px}
+  .dst h4{font-size:1rem}
+  .dst p{font-size:.8rem}
+  .vars button{font-size:.72rem;padding:4px 8px}
+  .vars.sw button{width:22px;height:22px}
+  .dst .hint{font-size:.74rem}
+  .dst .add-b{font-size:.78rem;padding:9px 8px}
+  .brands li{font-size:1.05rem}
+}
+
+/* foto da fachada */
+.facade{margin:0;position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);rotate:-1deg;transition:rotate .4s}
+.facade:hover{rotate:0deg}
+.facade img{width:100%;height:auto;aspect-ratio:739/316;object-fit:cover}
+.facade figcaption{position:absolute;left:12px;bottom:12px;background:rgba(11,11,13,.86);color:#fff;border-radius:999px;padding:7px 14px;font-size:.84rem;font-weight:600;display:flex;align-items:center;gap:8px;backdrop-filter:blur(6px)}
+.facade figcaption::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange)}
+
 /* ───────── gavetas ───────── */
 .cabinet{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(20px,3vw,40px);align-items:start}
 .cab-hint{display:flex;align-items:center;gap:10px;margin:0 0 12px;color:var(--tx-3);font-size:.95rem}
@@ -578,8 +633,8 @@ h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;co
 @media (max-width:980px){.faq{grid-template-columns:1fr}.faq .side{position:static}}
 
 /* ───────── como chegar ───────── */
-.visit{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:stretch}
-.map{position:relative;border-radius:22px;overflow:hidden;background:#dcd6c6;border:1px solid var(--line);min-height:420px}
+.visit{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:start}
+.map{position:relative;border-radius:22px;overflow:hidden;background:#dcd6c6;border:1px solid var(--line);aspect-ratio:7/6;position:sticky;top:100px}
 .map svg{width:100%;height:100%;position:absolute;inset:0;filter:var(--map-filter)}
 .map .st{stroke:#f6f3ec;stroke-linecap:round;fill:none}
 .map .sn{font-family:var(--mono);font-size:10px;letter-spacing:.08em;fill:#7c7768;text-transform:uppercase}
@@ -606,7 +661,7 @@ h2 i{font-weight:300;font-variation-settings:"wdth" 125;letter-spacing:-.05em;co
 .perks span{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-size:.9rem}
 .perks svg{width:16px;height:16px;color:var(--orange)}
 .visit-info .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
-@media (max-width:980px){.visit{grid-template-columns:1fr}.map{min-height:360px}}
+@media (max-width:980px){.visit{grid-template-columns:1fr}.map{position:relative;top:0;aspect-ratio:4/3}}
 
 /* ───────── rodapé (preto nos dois temas) ───────── */
 footer{background:var(--night);color:var(--on-night);padding-top:clamp(56px,7vw,90px);overflow:hidden;position:relative}
@@ -699,7 +754,7 @@ footer .wrap{position:relative}
         <a class="btn btn-ghost" href="#guia">Qual é o meu cabo?</a>
       </div>
       <ul class="trust ld" style="--d:.36s">
-        <li>Atendimento do próprio dono</li><li>Retirada na porta</li><li>Entrega</li>
+        <li>Atendimento do próprio dono</li><li>Retirada na porta</li><li>Entrega na Grande Goiânia e Aparecida</li>
       </ul>
     </div>
 
@@ -718,7 +773,7 @@ footer .wrap{position:relative}
     <div class="wrap">
       <div class="fact rv"><b>4,9<span class="star">★</span></b><span>nota no Google</span></div>
       <div class="fact rv"><b>64</b><span>avaliações de clientes</span></div>
-      <div class="fact rv"><b>12</b><span>tipos de produto</span></div>
+      <div class="fact rv"><b>+10 anos</b><span>de tradição em eletrônica</span></div>
       <div class="fact rv"><b>Nº 283</b><span>Rua 68 · Setor Central</span></div>
     </div>
   </div>
@@ -744,11 +799,30 @@ footer .wrap{position:relative}
   </div>
 </section>
 
+<!-- ═════════ MAIS PROCURADOS ═════════ -->
+<section class="sec" id="destaques" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker mono"><b>02</b> Mais procurados</span>
+      <h2>O que mais sai <i>no balcão.</i></h2>
+      <p>Produtos que a gente vende todo dia, explicados sem complicação. Escolha a opção que precisa e anote na sua lista.</p>
+    </div>
+    <div class="dst-grid" id="dstGrid"></div>
+
+    <div class="brands rv">
+      <span class="mono">Marcas que você encontra aqui</span>
+      <ul>
+        <li class="b1">intelbras</li><li class="b2">HIKARI</li><li class="b3">Implastec</li><li class="b4">SOHO PLUS</li><li class="b5">COBIX</li><li class="b6">DATALINK</li><li class="b7">MG</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- ═════════ GUIA RÁPIDO ═════════ -->
 <section class="sec dark" id="guia">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker mono"><b>02</b> Guia rápido</span>
+      <span class="kicker mono"><b>03</b> Guia rápido</span>
       <h2>Aprenda em 1 minuto. <i>Compre sem errar.</i></h2>
       <p>Dois guias para quem não é técnico: descubra o nome do cabo que você precisa e confira se um carregador serve no seu aparelho.</p>
     </div>
@@ -827,7 +901,7 @@ footer .wrap{position:relative}
   <div class="wrap bom">
     <div class="bom-copy">
       <div class="sec-head rv" style="margin-bottom:10px">
-        <span class="kicker mono"><b>03</b> Lista de compras</span>
+        <span class="kicker mono"><b>04</b> Lista de compras</span>
         <h2>Anote tudo. <i>A gente separa.</i></h2>
       </div>
       <p class="rv" style="color:var(--tx-2);margin:0;font-size:1.08rem">Precisa de várias coisas? Faça uma lista, igual à do supermercado. Quando terminar, ela vai prontinha pelo WhatsApp e a loja responde com o que tem e o preço.</p>
@@ -869,7 +943,7 @@ footer .wrap{position:relative}
 <section class="sec repair" id="conserto">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker mono"><b>04</b> Conserto</span>
+      <span class="kicker mono"><b>05</b> Conserto</span>
       <h2>Estragou? <i>Antes de jogar fora, traz aqui.</i></h2>
       <p>Muitas vezes o conserto sai mais barato que um aparelho novo. Você traz, a gente descobre o defeito e só faz o serviço depois que você aprovar o preço.</p>
     </div>
@@ -899,7 +973,7 @@ footer .wrap{position:relative}
 <section class="sec" id="avaliacoes">
   <div class="wrap voices">
     <div class="rv">
-      <span class="kicker mono"><b>05</b> Quem já comprou</span>
+      <span class="kicker mono"><b>06</b> Quem já comprou</span>
       <div class="score">4,9<sup>/5</sup></div>
       <div class="stars" aria-label="5 estrelas">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg>
@@ -935,7 +1009,7 @@ footer .wrap{position:relative}
 <section class="sec" id="duvidas" style="padding-top:0">
   <div class="wrap faq">
     <div class="side rv">
-      <span class="kicker mono"><b>06</b> Dúvidas</span>
+      <span class="kicker mono"><b>07</b> Dúvidas</span>
       <h2>Perguntas <i>de quem chega.</i></h2>
       <p style="color:var(--tx-2);margin:18px 0 0">Não achou sua resposta? Ligue para a loja ou passe aqui — é rapidinho.</p>
       <a class="btn btn-ghost" href="tel:+556239450068"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Ligar: (62) 3945-0068</a>
@@ -945,7 +1019,7 @@ footer .wrap{position:relative}
       <details><summary>Vocês consertam aparelhos?<i></i></summary><div class="ans"><p>Sim. Traga o aparelho na loja: o técnico avalia, descobre o defeito e passa o preço. O conserto só é feito depois que você aprovar.</p></div></details>
       <details><summary>Como sei se vocês têm o que eu preciso?<i></i></summary><div class="ans"><p>Ligue para a loja ou chame no WhatsApp. Se precisar de várias coisas, monte a sua lista aqui no site e envie de uma vez.</p></div></details>
       <details><summary>Meu carregador quebrou. Qualquer um serve?<i></i></summary><div class="ans"><p>Nem sempre — cada aparelho precisa do carregador certo, senão pode estragar. Use o teste <a href="#guia" data-open-tab="tab-carr">“O carregador serve?”</a> aqui no site: é só copiar os números da etiqueta. Na dúvida, traga o antigo na loja.</p></div></details>
-      <details><summary>Vocês entregam?<i></i></summary><div class="ans"><p>Sim. Você pode comprar na loja, retirar na porta ou receber por entrega. Chame no WhatsApp para combinar.</p></div></details>
+      <details><summary>Vocês entregam?<i></i></summary><div class="ans"><p>Sim! Entregamos em toda a Grande Goiânia e em Aparecida de Goiânia. Se preferir, compre na loja ou retire na porta. Chame no WhatsApp para combinar.</p></div></details>
       <details><summary>Sou técnico, instalador ou empresa. Tem atendimento pra mim?<i></i></summary><div class="ans"><p>Tem. Atendemos quem compra para trabalhar e em maior quantidade. Monte sua lista aqui no site e envie pelo WhatsApp que a gente faz o orçamento.</p></div></details>
       <details><summary>Qual o horário da loja?<i></i></summary><div class="ans"><p>De segunda a sexta, das 8h às 18h, na Rua 68, nº 283 — Setor Central, Goiânia.</p></div></details>
     </div>
@@ -956,7 +1030,7 @@ footer .wrap{position:relative}
 <section class="sec" id="visite" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker mono"><b>07</b> Como chegar</span>
+      <span class="kicker mono"><b>08</b> Como chegar</span>
       <h2>Na rua da <i>eletrônica.</i></h2>
       <p>A Rua 68 é a rua da eletrônica de Goiânia. A Premier fica no número 283, no Setor Central.</p>
     </div>
@@ -998,15 +1072,18 @@ footer .wrap{position:relative}
 
       <div class="visit-info rv">
         <p class="addr">Rua 68, nº 283<span>Quadra 125, Lote 31 · Setor Central<br>Goiânia – GO · CEP 74055-100</span></p>
+        <figure class="facade"><img src="img/fachada.jpg" alt="Fachada da Eletrônica Premier na Rua 68, com letreiro preto e laranja" width="739" height="316" loading="lazy"><figcaption>Procure esta fachada</figcaption></figure>
         <dl class="kv" id="hours">
           <div><dt>Agora</dt><dd class="now" id="nowTxt"><i></i><span>—</span></dd></div>
           <div><dt>Segunda a sexta</dt><dd data-d="1-5">08h – 18h</dd></div>
-          <div><dt>Telefone</dt><dd><a href="tel:+556239450068">(62) 3945-0068</a></dd></div>
+          <div><dt>WhatsApp</dt><dd><a data-wa="Olá, Eletrônica Premier! Vim pelo site." href="#" target="_blank" rel="noopener">(62) 98488-4237</a></dd></div>
+          <div><dt>Telefone fixo</dt><dd><a href="tel:+556239450068">(62) 3945-0068</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/eletronicapremier" target="_blank" rel="noopener">@eletronicapremier</a></dd></div>
         </dl>
         <div class="perks">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l1.5-5h13L20 9M4 9h16v11H4zM9 20v-6h6v6"/></svg>Compra na loja</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8"/></svg>Retirada na porta</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7M7.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM17.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>Entrega</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7M7.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM17.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>Entrega na Grande Goiânia e Aparecida</span>
         </div>
         <div class="ctas">
           <a class="btn btn-ink" href="https://maps.app.goo.gl/zpdtS55PyyUHASVR7" target="_blank" rel="noopener">Abrir no Google Maps</a>
@@ -1031,11 +1108,11 @@ footer .wrap{position:relative}
     </div>
     <div class="foot">
       <div><h5>Loja</h5><p>Rua 68, 283 · Qd 125 Lt 31<br>Setor Central · Goiânia–GO<br>74055-100</p></div>
-      <div><h5>Horário</h5><p>Segunda a sexta<br>08h às 18h</p></div>
-      <div><h5>Contato</h5><a href="tel:+556239450068">(62) 3945-0068</a><br><a data-wa="Olá, Eletrônica Premier! Vim pelo site." href="#" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div><h5>Horário</h5><p>Segunda a sexta<br>08h às 18h<br>Entrega na Grande Goiânia e Aparecida</p></div>
+      <div><h5>Contato</h5><a data-wa="Olá, Eletrônica Premier! Vim pelo site." href="#" target="_blank" rel="noopener">WhatsApp (62) 98488-4237</a><br><a href="tel:+556239450068">Fixo (62) 3945-0068</a><br><a href="https://www.instagram.com/eletronicapremier" target="_blank" rel="noopener">Instagram @eletronicapremier</a></div>
       <div><h5>Navegar</h5><a href="#produtos">Produtos</a><br><a href="#guia">Guia rápido</a><br><a href="#conserto">Conserto</a><br><a href="#duvidas">Dúvidas</a></div>
     </div>
-    <div class="legal"><span>© <span id="yr"></span> ELETRÔNICA PREMIER LTDA · CNPJ 59.790.633/0001-93</span><span>PEÇAS · CARREGADORES · CABOS · SEGURANÇA · CONSERTO</span></div>
+    <div class="legal"><span>© <span id="yr"></span> ELETRÔNICA PREMIER LTDA · CNPJ 59.790.633/0001-93</span><span>COMPONENTES · SUPORTES · ACESSÓRIOS · FERRAMENTAS · REDES</span></div>
   </div>
 </footer>
 
@@ -1047,8 +1124,8 @@ footer .wrap{position:relative}
    CONFIG — confirmar com o cliente
    ════════════════════════════════════════════ */
 const CONFIG = {
-  // Número de WhatsApp (55 + DDD + número). Usando o fixo da loja até o cliente confirmar.
-  whatsapp: "556239450068",
+  // WhatsApp da loja (55 + DDD + número), conforme fachada e anúncios: (62) 98488-4237
+  whatsapp: "5562984884237",
   // Horário: dia da semana (0=dom … 6=sáb) -> [abre, fecha]. Sábado a confirmar.
   hours: {1:[8,18],2:[8,18],3:[8,18],4:[8,18],5:[8,18]}
 };
@@ -1246,7 +1323,7 @@ $('#sendList').addEventListener('click', () => {
 renderList();
 
 /* ════════════ FAIXA ════════════ */
-const PN = ['Carregador de notebook','Controle remoto','Cabo HDMI','Fonte para câmera','Fita de LED','Antena digital','Pilhas e baterias','Ferro de solda','Caixa de som','Cabo de som','Carregador de celular','Extensão e adaptador','Fusível','Cooler','Câmera de segurança','Conserto de aparelhos'];
+const PN = ['Ferro de solda Hikari','Cabo de rede CAT.6','Álcool isopropílico','Suporte para TV','Carregador de notebook','Controle remoto','Cabo HDMI','Fonte para câmera','Fita de LED','Antena digital','Pilhas e baterias','Ferro de solda','Caixa de som','Cabo de som','Carregador de celular','Extensão e adaptador','Fusível','Cooler','Câmera de segurança','Conserto de aparelhos'];
 $('#ticker').innerHTML = [...PN, ...PN].map(p => `<span>${p}</span>`).join('');
 
 /* ════════════ GAVETAS ════════════ */
@@ -1259,7 +1336,8 @@ const gi = {
   bulb:'<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/>',
   car:'<path d="M5 16h14v-4l-2-5H7l-2 5zM3 16h18M7 19v-3M17 19v-3"/>',
   ant:'<rect x="3" y="9" width="18" height="12" rx="2"/><path d="M12 9L7 3M12 9l5-6M8 21v1M16 21v1"/>',
-  robot:'<rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 4v4M9 13h.01M15 13h.01M9.5 16h5"/>',
+  mount:'<rect x="6" y="5" width="15" height="11" rx="1.5"/><path d="M2 8v6M2 11h4M13 16v3M10 19h6"/>',
+  net:'<rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M5 16v-4h14v4"/>',
   fix:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/>'
 };
 const DRAWERS = [
@@ -1271,9 +1349,9 @@ const DRAWERS = [
   {lbl:'Antenas', g:'ant', t:'Antenas de TV', d:'Para a TV pegar os canais sem chiado.', f:'TV aberta, sinal digital', items:['Antena digital','Cabo de antena','Divisor de sinal','Conectores']},
   {lbl:'Elétrica', g:'wire', t:'Material elétrico', d:'Pequenos reparos elétricos em casa.', f:'tomadas, extensões, instalações', items:['Fios e cabos','Tomadas e interruptores','Fusíveis','Fita isolante','Conectores e emendas']},
   {lbl:'Ferramentas', g:'iron', t:'Ferramentas', d:'Para quem gosta de fazer o próprio reparo.', f:'técnicos e curiosos', items:['Ferro de solda','Estanho (solda)','Multímetro (medidor)','Alicates','Chaves de fenda']},
-  {lbl:'Automotivo', g:'car', t:'Elétrica do carro', d:'Peças elétricas para carro e moto.', f:'fusível queimado, som do carro, tomada 12V', items:['Fusíveis de carro','Relés','Carregador veicular','Tomada 12V / USB','Conectores']},
+  {lbl:'Suportes TV', g:'mount', t:'Suportes para TV', d:'Para prender a TV na parede com segurança.', f:'sala, quarto, comércio, TVs de todos os tamanhos', items:['Suporte fixo','Suporte inclinável','Suporte articulado','Suporte para TV box e receptor']},
   {lbl:'Peças', g:'chip', t:'Peças eletrônicas', d:'As pecinhas que ficam dentro dos aparelhos.', f:'técnicos, estudantes e consertos', items:['Resistores','Capacitores','Transistores','Circuitos integrados (chips)','Diodos','Reguladores']},
-  {lbl:'Projetos', g:'robot', t:'Projetos e robótica', d:'Kits e peças para estudantes e projetos.', f:'escola, faculdade, automação', items:['Placas para protótipo','Sensores','Fios jumper','Kits de componentes']},
+  {lbl:'Redes', g:'net', t:'Redes e internet', d:'Para levar internet estável por cabo à casa ou à empresa.', f:'escritório, câmeras, smart TV, videogame', items:['Cabo de rede CAT.6','Conectores RJ45','Alicate de crimpar','Roteadores e acessórios']},
   {lbl:'Conserto', g:'fix', t:'Conserto de aparelhos', d:'Não achou a peça? Traga o aparelho que a gente conserta.', f:'som, fontes, notebook, eletrônicos', items:['Som e caixas de som','Fontes e carregadores','Notebook e computador','Placas eletrônicas'], repair:true}
 ];
 const drawersEl = $('#drawers'), panel = $('#panel');
@@ -1407,6 +1485,69 @@ $('#ckAdd').addEventListener('click', () => {
   addItem(`Carregador ${br(ov)}V ${br(oa)}A (igual ao meu antigo)`);
 });
 testarCarregador();
+
+/* ════════════ MAIS PROCURADOS ════════════ */
+/* desenhos em viewBox 0 0 160 100 */
+const DESTAQUES = [
+  {brand:'Hikari Plus', n:'Ferro de solda', use:'Para soldar fios e consertar placas. Esquenta rápido e tem dupla isolação.',
+   vars:[['30W','Consertos pequenos e placas delicadas'],['40W','Uso geral — o mais versátil'],['60W','Fios grossos e peças maiores']], def:1, add:'Ferro de solda Hikari Plus',
+   svg:'<g transform="rotate(-16 80 52)"><path d="M10 52h26" stroke="#cfd3d8" stroke-width="3" stroke-linecap="round"/><rect x="34" y="47" width="48" height="10" rx="3" fill="#d7dadf"/><rect x="80" y="42" width="52" height="20" rx="10" fill="#f5c518"/><path d="M92 42v20M100 42v20" stroke="#d9a90c" stroke-width="2"/><rect x="130" y="47" width="14" height="10" rx="2" fill="#2a2a2e"/></g><path d="M146 54c10 6 6 22-8 26" stroke="#2a2a2e" stroke-width="4" fill="none" stroke-linecap="round"/>'},
+  {brand:'Cobix', n:'Estanho para solda', use:'O “fio” que derrete com o ferro de solda e une as peças.',
+   vars:[['60x40 · 1,0 mm','o mais usado em eletrônica']], def:0, add:'Estanho para solda Cobix',
+   svg:'<rect x="46" y="18" width="12" height="66" rx="4" fill="#1f2024"/><rect x="102" y="18" width="12" height="66" rx="4" fill="#1f2024"/><rect x="58" y="26" width="44" height="50" fill="#c9ccd2"/><path d="M58 34h44M58 42h44M58 50h44M58 58h44M58 66h44" stroke="#a5a9b0" stroke-width="2"/><rect x="62" y="40" width="36" height="20" rx="2" fill="#0a3cff"/><text x="80" y="54" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="10" fill="#fff">60x40</text><path d="M102 70c18 4 26 10 38 4" stroke="#c9ccd2" stroke-width="3" fill="none" stroke-linecap="round"/>'},
+  {brand:'Implastec', n:'Álcool isopropílico 99,8%', use:'Limpa placas, conectores e telas sem deixar mancha. Não conduz eletricidade e seca rápido.',
+   vars:[['100 ml',''],['250 ml',''],['500 ml',''],['1 L',''],['5 L','Galão para uso profissional']], def:2, add:'Álcool isopropílico 99,8% Implastec',
+   svg:'<path d="M74 6l6-2 6 2-3 14h-6z" fill="#0a3cff"/><rect x="70" y="20" width="20" height="10" rx="2" fill="#0a3cff"/><path d="M62 30h36l4 8v52a6 6 0 0 1-6 6H64a6 6 0 0 1-6-6V38z" fill="#eef2f7"/><rect x="62" y="50" width="36" height="28" rx="2" fill="#fff" stroke="#0a3cff" stroke-width="2"/><text x="80" y="62" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="900" font-size="9" fill="#0a3cff">99,8%</text><path d="M66 70h28" stroke="#0a3cff" stroke-width="2"/>'},
+  {brand:'Soho Plus', n:'Cabo de rede CAT.6', use:'Internet estável por cabo, para escritório, câmeras e TV. 100% cobre e homologado Anatel.',
+   vars:[['CAT.6','Para redes de até 1 Gbps (gigabit)']], def:0, add:'Cabo de rede CAT.6 Soho Plus',
+   svg:'<path d="M40 26l50-10 30 10v58l-30 10-50-10z" fill="#f5c518"/><path d="M90 16v78" stroke="#d9a90c" stroke-width="2"/><path d="M90 16l30 10v58l-30 10z" fill="#e2b311"/><text x="64" y="58" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="900" font-size="14" fill="#111">CAT.6</text><rect x="48" y="34" width="32" height="8" rx="1" fill="#111"/><path d="M120 60c14 0 16 14 30 14" stroke="#3b82f6" stroke-width="4" fill="none" stroke-linecap="round"/>'},
+  {brand:'Fio para projetos', n:'Cobre estanhado', use:'Fio de cobre com proteção de estanho: conduz bem e facilita a solda. Rolo de 100 m.',
+   vars:[['0,14 mm','Bem fino, para placas e ligações delicadas'],['0,32 mm',''],['0,75 mm',''],['1 mm','Mais grosso, aguenta mais corrente']], def:2, add:'Cobre estanhado (rolo 100 m)',
+   svg:'<rect x="42" y="16" width="14" height="70" rx="5" fill="#f4f4f6"/><rect x="104" y="16" width="14" height="70" rx="5" fill="#f4f4f6"/><rect x="56" y="24" width="48" height="54" fill="#b9bcc3"/><path d="M56 30h48M56 36h48M56 42h48M56 48h48M56 54h48M56 60h48M56 66h48M56 72h48" stroke="#9a9ea6" stroke-width="2"/><rect x="62" y="42" width="36" height="16" rx="2" fill="#fff"/><text x="80" y="53.5" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="8" fill="#111">100m</text>'},
+  {brand:'Fio para projetos', n:'Cabo flex colorido', use:'Fio flexível em várias cores, para montar chicotes e identificar cada ligação.',
+   color:true, vars:[['Preto','#1b1b1b'],['Vermelho','#d32f2f'],['Azul','#1e4fd8'],['Verde','#1f9d55'],['Amarelo','#f5c518'],['Branco','#f4f4f4'],['Laranja','#ff8a0f'],['Cinza','#8a8a8a'],['Roxo','#7b3fb8'],['Rosa','#ec4899'],['Marrom','#7a4a28']], def:1, add:'Cabo flex',
+   svg:'<g id="flexrolls"><circle cx="54" cy="40" r="20" fill="#1b1b1b"/><circle cx="54" cy="40" r="7" fill="#0f1015"/><circle cx="106" cy="40" r="20" fill="#1e4fd8"/><circle cx="106" cy="40" r="7" fill="#0f1015"/><circle class="flex-main" cx="80" cy="66" r="22" fill="#d32f2f"/><circle cx="80" cy="66" r="8" fill="#0f1015"/></g>'},
+  {brand:'Instalação', n:'Suporte para TV', use:'Para prender a TV na parede com segurança. Fixo, inclinável ou articulado — a gente indica o certo.',
+   vars:[['Até 32"',''],['32" a 55"',''],['Acima de 55"','']], def:1, add:'Suporte para TV',
+   svg:'<rect x="14" y="26" width="10" height="48" rx="2" fill="#6b6c72"/><path d="M24 40h18l10 10-10 10H24" fill="none" stroke="#9a9ca3" stroke-width="5" stroke-linejoin="round"/><rect x="52" y="14" width="96" height="62" rx="4" fill="#1b1c22" stroke="#f1efe9" stroke-width="3"/><path d="M60 22l30 22" stroke="rgba(255,255,255,.12)" stroke-width="8"/><rect x="92" y="78" width="16" height="4" rx="2" fill="#f1efe9"/>'},
+  {brand:'Ferramenta', n:'Multímetro', use:'Mede tomada, pilha, bateria e fios. Descobre se tem energia antes de mexer.',
+   vars:[['Digital','Fácil de ler, mostra o número na tela']], def:0, add:'Multímetro digital',
+   svg:'<rect x="54" y="8" width="52" height="84" rx="10" fill="#f5c518"/><rect x="60" y="14" width="40" height="72" rx="6" fill="#1f2024"/><rect x="66" y="20" width="28" height="16" rx="2" fill="#cfe3c8"/><text x="80" y="32" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="9" fill="#1f2024">220</text><circle cx="80" cy="56" r="11" fill="#2f3036" stroke="#9a9ca3" stroke-width="2"/><path d="M80 56l6-6" stroke="#f5c518" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="78" r="3" fill="#d32f2f"/><circle cx="90" cy="78" r="3" fill="#888"/><path d="M70 81c-8 10-26 6-36 12" stroke="#d32f2f" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M90 81c8 10 26 6 36 12" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round"/>'}
+];
+const dstSel = DESTAQUES.map(d => d.def);
+function dstHint(d, i){
+  const [lbl, extra] = d.vars[i];
+  if (d.color) return `Cor: <b>${lbl}</b>`;
+  return `<b>${lbl}</b>${extra ? ' — ' + extra : ''}`;
+}
+$('#dstGrid').innerHTML = DESTAQUES.map((d, k) => `
+  <article class="dst rv" data-k="${k}">
+    <div class="art"><svg viewBox="0 0 160 100" aria-hidden="true">${d.svg}</svg></div>
+    <span class="brand-tag">${d.brand}</span>
+    <h4>${d.n}</h4>
+    <p>${d.use}</p>
+    ${d.vars.length > 1 ? `<div class="vars${d.color ? ' sw' : ''}" role="radiogroup" aria-label="Opções de ${esc(d.n)}">${d.vars.map(([l, x], i) =>
+      d.color ? `<button type="button" data-v="${i}" aria-pressed="${i === d.def}" title="${l}" aria-label="${l}" style="background:${x}"></button>`
+              : `<button type="button" data-v="${i}" aria-pressed="${i === d.def}">${l}</button>`).join('')}</div>` : ''}
+    <div class="hint">${dstHint(d, d.def)}</div>
+    <button class="add-b" type="button" data-addk="${k}">+ Adicionar à lista</button>
+  </article>`).join('');
+$('#dstGrid').addEventListener('click', e => {
+  const card = e.target.closest('.dst'); if (!card) return;
+  const k = +card.dataset.k, d = DESTAQUES[k];
+  const v = e.target.closest('[data-v]');
+  if (v){
+    dstSel[k] = +v.dataset.v;
+    $$('[data-v]', card).forEach(b => b.setAttribute('aria-pressed', String(b === v)));
+    $('.hint', card).innerHTML = dstHint(d, dstSel[k]);
+    if (d.color){ const m = $('.flex-main', card); if (m) m.setAttribute('fill', d.vars[dstSel[k]][1]); }
+    return;
+  }
+  if (e.target.closest('[data-addk]')){
+    const lbl = d.vars[dstSel[k]][0];
+    addItem(d.vars.length > 1 ? `${d.add} — ${d.color ? 'cor ' + lbl.toLowerCase() : lbl}` : d.add);
+  }
+});
 
 /* ════════════ ENTRADA + LINHA DE PROGRESSO ════════════ */
 const io = new IntersectionObserver(en => en.forEach(x => { if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }), {threshold:.15, rootMargin:'0px 0px -40px 0px'});
